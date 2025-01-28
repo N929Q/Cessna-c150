@@ -6,7 +6,7 @@ This model was adopted from the flightgear.fgaddon.stable_2024\Aircraft hanger.
 
 
 
-Fixed nav lights thanks to some help from N512CO. Also fixed so the wingtip lights are not directional (one was pointed forward the other back), but made tail light directional as should be.
+Fixed nav lights thanks to some help from N512CO. Also fixed lights so the wingtip lights are not directional (one was pointed forward the other back), but made tail light directional as should be.
 
 Fixed main breaker issue with breaker always blowing.
 
