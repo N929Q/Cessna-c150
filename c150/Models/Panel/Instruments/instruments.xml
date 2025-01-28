@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+	
+	<!-- INSTRUMENTS -->
+	
+	<model>
+		<path>asi/asi.xml</path>
+		<offsets>
+			<x-m> 0.0</x-m>
+			<y-m>-0.421</y-m>
+			<z-m>0.211</z-m>
+		</offsets>
+	</model>
+	
+	
+	<model>
+		<path>vorloc/vorloc.xml</path>
+		<offsets>
+			<x-m> 0.008 </x-m>
+			<y-m>-0.056</y-m>
+			<z-m> 0.214</z-m>
+		</offsets>
+	</model>
+	
+	
+	<model>
+		<condition>
+			<property>sim/model/c150/options/second-vhf</property>
+		</condition>
+		<path>vorloc/vorloc.xml</path>
+		<overlay>
+			<params>
+				<radial>instrumentation/nav[1]/radials/selected-deg</radial>
+				<hdg-needle>instrumentation/nav[1]/heading-needle-deflection-norm</hdg-needle>
+				<gs-needle>instrumentation/nav[1]/gs-needle-deflection-norm</gs-needle>
+				<off-flag>instrumentation/nav[1]/off-flag</off-flag>
+			</params>
+		</overlay>
+		<offsets>
+			<x-m> 0.0</x-m>
+			<y-m>-0.056</y-m>
+			<z-m>0.096</z-m>
+		</offsets>
+	</model>
+	
+	
+	<model>
+		<condition>
+			<property>sim/model/c150/options/adf</property>
+			<not>
+				<property>sim/model/c150/options/second-vhf</property>
+			</not>
+		</condition>
+		<path>adf/adf.xml</path>
+		<offsets>
+			<x-m> 0.0</x-m>
+			<y-m>-0.056</y-m>
+			<z-m>0.096</z-m>
+		</offsets>
+	</model>
+	<model>
+		<condition>
+			<property>sim/model/c150/options/adf</property>
+			<property>sim/model/c150/options/second-vhf</property>
+		</condition>
+		<path>adf/adf.xml</path>
+		<offsets>
+			<x-m> 0.001</x-m>
+			<y-m>0.254</y-m>
+			<z-m>0.214</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>alt/alt.xml</path>
+		<offsets>
+			<x-m> 0.008 </x-m>
+			<y-m>-0.155</y-m>
+			<z-m>0.214</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>ai/ai.xml</path>
+		<offsets>
+			<x-m> 0.0</x-m>
+			<y-m>-0.318</y-m>
+			<z-m>0.214</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>hi/hi.xml</path>
+		<offsets>
+			<x-m> 0.006</x-m>
+			<y-m>-0.323</y-m>
+			<z-m>0.096</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>rpm/rpm.xml</path>
+		<offsets>
+			<x-m> 0.001</x-m>
+			<y-m>0.353</y-m>
+			<z-m>0.214</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>vac/vac.xml</path>
+		<offsets>
+			<x-m> 0.0</x-m>
+			<y-m>0.447</y-m>
+			<z-m>0.209</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>ammeter/ammeter.xml</path>
+		<offsets>
+			<x-m> 0.003</x-m>
+			<y-m>0.453</y-m>
+			<z-m>0.112</z-m>
+		</offsets>
+	</model>
+	
+	
+	<model>
+		<path>hobbs/hobbs.xml</path>
+		<offsets>
+			<x-m> 0.006</x-m>
+			<y-m>0.235598 m</y-m>
+			<z-m>0.135</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>tc/tc.xml</path>
+		<offsets>
+			<x-m> 0.008 </x-m>
+			<y-m>-0.421</y-m>
+			<z-m>0.096</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>clock/clock.xml</path>
+		<offsets>
+			<x-m> 0.0025</x-m>
+			<y-m>-0.237</y-m>
+			<z-m>0.186</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>vsi/vsi.xml</path>
+		<offsets>
+			<x-m> 0.008 </x-m>
+			<y-m>-0.152</y-m>
+			<z-m>0.096</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>spa400/intercom.ac</path>
+		<offsets>
+			<x-m>.029</x-m>
+			<y-m>0.16</y-m>
+			<z-m>0.3</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>fuel-oil/LeftFuel.xml</path>
+		<offsets>
+			<x-m> 0.006</x-m>
+			<y-m>0.311</y-m>
+			<z-m>0.135</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>fuel-oil/RightFuel.xml</path>
+		<offsets>
+			<x-m> 0.006</x-m>
+			<y-m>0.385</y-m>
+			<z-m>0.135</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>fuel-oil/OilPress.xml</path>
+		<offsets>
+			<x-m> 0.006</x-m>
+			<y-m>0.311</y-m>
+			<z-m>0.085</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>fuel-oil/OilTemp.xml</path>
+		<offsets>
+			<x-m> 0.006</x-m>
+			<y-m>0.385</y-m>
+			<z-m>0.085</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>arc/rt-385a.xml</path>
+		<offsets>
+			<x-m>  0.011</x-m>
+			<y-m> 0.098</y-m>
+			<z-m>0.249</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<condition>
+			<property>sim/model/c150/options/second-vhf</property>
+		</condition>
+		<path>arc/rt-385a-2.xml</path>
+		<offsets>
+			<x-m>  0.011</x-m>
+			<y-m> 0.098</y-m>
+			<z-m>0.185</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<condition>
+			<property>sim/model/c150/options/adf</property>
+		</condition>
+		<path>arc/r-546e.xml</path>
+		<offsets>
+			<x-m>  0.012</x-m>
+			<y-m> 0.098</y-m>
+			<z-m>0.121</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>arc/rt-359a.xml</path>
+		<offsets>
+			<x-m>  0.011</x-m>
+			<y-m> 0.098</y-m>
+			<z-m>0.067</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>compass/compass.xml</path>
+		<offsets>
+			<x-m> 0.059 </x-m>
+			<y-m> 0.00  </y-m>
+			<z-m> 0.565 </z-m>
+		</offsets>
+	</model>
+	
+</PropertyList>

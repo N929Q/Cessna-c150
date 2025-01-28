@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+************************************************************************
+JSBSim Cessna 150L.
+
+Started May 2005 by Harald Johnsen
+
+Cockpit Adjusted June 2011 by Tom Haigh
+
+FDM/Engine Adjusted June 2011 by Ron Jensen
+
+Overhauling 2016 by Harald Johnsen
+************************************************************************
+-->
+
+<PropertyList include="Aircraft/Generic/Human/Include/walker-include.xml">
+	
+	<sim>
+		
+		<author>Harald Johnsen</author>
+		<authors>
+			<author n="0">
+				<name>Harald Johnsen</name>
+			</author>
+			<author n="1">
+				<name>Gilberto Agostinho</name>
+			</author>
+			<author n="2">
+				<name>Bea Wolf</name>
+			</author>
+		</authors>
+		<status>beta</status>
+		
+		<long-description>The Cessna 150 is a two-seat tricycle gear general aviation airplane that was designed for flight training, touring and personal use.
+			The Cessna 150 is the fifth most produced civilian plane ever, with 23,839 aircraft produced. The Cessna 150 was offered for sale in the 150 basic model, Commuter, Commuter II, Patroller and the aerobatic Aerobat models.
+		</long-description>
+		
+		<fr>
+			<long-description>Le Cessna 150 est un avion biplace à train tricycle qui a été conçu pour l'entraînement au vol, les tournées et l'utilisation personnelle1. Le Cessna 150 est le cinquième avion civil le plus produit, avec 23 839 avions produits.
+			</long-description>
+		</fr>
+		<de>
+			<long-description>Die Cessna 150 und Cessna 152 sind populäre zweisitzige, abgestrebte Schulterdecker des Flugzeugherstellers Cessna mit starrem Dreibeinfahrwerk. Die Leichtflugzeuge wurden speziell für die Schulung entwickelt.
+			</long-description>
+		</de>
+		<es>
+			<long-description>El Cessna 150 es un avión biplaza de propósito general equipado con tren de aterrizaje fijo en triciclo y ala alta, diseñado originalmente para labores de entrenamiento, turismo y uso personal.
+			</long-description>
+		</es>
+		<pt>
+			<long-description>O Cessna 150 é um avião a motor de combustão interna, originalmente projectado para treino de vôo. O primeiro foi produzido em 1959, como sucessor do popular Cessna 140.
+			</long-description>
+		</pt>
+		
+		<tags>
+			<tag>ga</tag>
+			<tag>cessna</tag>
+			<tag>piston</tag>
+			<tag>single-engine</tag>
+			<tag>fixed-gear</tag>
+			<tag>1970s</tag>
+		</tags>
+		
+		<rating>
+			<FDM type="int">2</FDM>
+			<systems type="int">3</systems>
+			<model type="int">3</model>
+			<cockpit type="int">4</cockpit>
+		</rating>
+		
+		<state include="states/parking-overlay.xml"	n="0" />
+		<state include="states/take-off-overlay.xml"	n="1" />
+		
+		<model>
+			<path archive="y">Aircraft/c150/Models/c150.xml</path>
+			<c150>
+				<chocks>
+					<left-enable type="bool">false</left-enable>
+					<right-enable type="bool">false</right-enable>
+				</chocks>
+				<doors>
+					<door>
+						<name type="string">pilot's door</name>
+						<position-norm type="double">0.0</position-norm>
+						<cmd type="bool">false</cmd>
+					</door>
+					<door>
+						<name type="string">copilot's door</name>
+						<position-norm type="double">0.0</position-norm>
+						<cmd type="bool">false</cmd>
+					</door>
+					<window n="0">
+						<name type="string">pilot's window</name>
+						<cmd-norm type="double">0.0</cmd-norm>
+						<position-norm type="double">0.0</position-norm>
+						<lock-cmd type="bool">false</lock-cmd>
+						<lock-pos-norm type="double">0.0</lock-pos-norm>
+					</window>
+					<window n="1">
+						<name type="string">copilot's window</name>
+						<cmd-norm type="double">0.0</cmd-norm>
+						<position-norm type="double">0.0</position-norm>
+						<lock-cmd type="bool">false</lock-cmd>
+						<lock-pos-norm type="double">0.0</lock-pos-norm>
+					</window>
+				</doors>
+				<options>
+					<show-yoke type="bool">true</show-yoke>
+					<second-vhf type="bool">true</second-vhf>
+					<adf type="bool">true</adf>
+					<flap-mode type="bool">false</flap-mode> <!-- see Nasal/electrical.nas -->
+				</options>
+				<immat type="string">F-C150</immat>
+				<tiedowns>
+					<left>
+						<pitch-deg type="double">0.0</pitch-deg>
+						<heading-deg type="double">0.0</heading-deg>
+						<length type="double">0.0</length>
+						<ref-length type="double">0.0</ref-length>
+						<x type="double">0.0</x>
+						<y type="double">-4.0</y>
+						<attached type="bool">false</attached>
+					</left>
+					<right>
+						<pitch-deg type="double">0.0</pitch-deg>
+						<heading-deg type="double">0.0</heading-deg>
+						<length type="double">0.0</length>
+						<ref-length type="double">0.0</ref-length>
+						<x type="double">0.0</x>
+						<y type="double">4.0</y>
+						<attached type="bool">false</attached>
+					</right>
+					<tail>
+						<pitch-deg type="double">0.0</pitch-deg>
+						<heading-deg type="double">0.0</heading-deg>
+						<length type="double">0.0</length>
+						<ref-length type="double">0.0</ref-length>
+						<x type="double">-5.5</x>
+						<y type="double">0.0</y>
+						<attached type="bool">false</attached>
+					</tail>
+				</tiedowns>
+			</c150>
+			
+			<!-- An exit for the walker -->
+			<map>
+				<default_exit>
+					<x-offset-m type="float">3.5</x-offset-m>
+					<y-offset-m type="float">-1</y-offset-m>
+				</default_exit>
+			</map>
+		</model>
+		
+		<!-- properties used for animations, except standard ones (https://wiki.flightgear.org/Multiplayer_protocol#Master_property_transmission_list) -->
+		<multiplay>
+			<generic>
+				<float n="0" alias="/gear/gear[0]/rollspeed-ms" />
+				<float n="1" alias="/gear/gear[1]/rollspeed-ms" />
+				<float n="2" alias="/gear/gear[2]/rollspeed-ms" />
+				<float n="3" alias="/controls/flight/elevator-trim" />
+				<float n="4" alias="/sim/model/c150/doors/door[0]/position-norm" />
+				<float n="5" alias="/sim/model/c150/doors/door[1]/position-norm" />
+				<float n="6" alias="/sim/model/c150/doors/window[0]/position-norm" />
+				<float n="7" alias="/sim/model/c150/doors/window[1]/position-norm" />
+				
+				<!-- int 0 - 5 reserved for immat, see Nasal/immat.nas -->
+				<int n="6" alias="/systems/electrical/outputs/navigation-lights-norm" />
+				<int n="7" alias="/systems/electrical/outputs/beacon-norm" />
+				<int n="8" alias="/systems/electrical/outputs/strobe-lights-norm" />
+				<int n="9" alias="/systems/electrical/outputs/landing-light-norm" />
+				<int n="10" alias="/gear/gear[0]/wow" />
+				<int n="11" alias="/gear/gear[1]/wow" />
+				<int n="12" alias="/gear/gear[2]/wow" />
+				<int n="13" alias="/sim/model/c150/tiedowns/left/attached"/>
+				<int n="14" alias="/sim/model/c150/tiedowns/right/attached"/>
+				<int n="15" alias="/sim/model/c150/tiedowns/tail/attached"/>
+			</generic>
+		</multiplay>
+		
+		<aircraft-data>
+			<path>c150/debug-mode</path>
+			<path>engines/engine[0]/complex-engine-procedures</path>
+			
+			<path>sim/model/c150/options/show-yoke</path>
+			<path>sim/model/c150/options/adf</path>
+			<path>sim/model/c150/options/second-vhf</path>
+			<path>sim/model/c150/options/flap-mode</path>
+			<path>instrumentation/clock/hobbs-meter/sec</path>
+			<path>instrumentation/clock/tach-meter/sec</path>
+			<path>systems/electrical/battery-charge-percent</path>
+			<path>sim/model/c150/immat</path>
+			
+			<path>sim/sound/c150-wind/volume</path>
+			<path>sim/sound/c150-engine/volume</path>
+			<path>sim/sound/c150-click/volume</path>
+			
+			<path>instrumentation/comm[0]/volume</path>
+			<path>instrumentation/comm[0]/frequencies/selected-mhz</path>
+			<path>instrumentation/comm[0]/frequencies/standby-mhz</path>
+			<path>instrumentation/comm[0]/squelch</path>
+			<path>instrumentation/nav[0]/volume</path>
+			<path>instrumentation/nav[0]/audio-btn</path>
+			<path>instrumentation/nav[0]/power-btn</path>
+			<path>instrumentation/nav[0]/frequencies/selected-mhz</path>
+			<path>instrumentation/nav[0]/frequencies/standby-mhz</path>
+			
+			<path>instrumentation/comm[1]/volume</path>
+			<path>instrumentation/comm[1]/frequencies/selected-mhz</path>
+			<path>instrumentation/comm[1]/frequencies/standby-mhz</path>
+			<path>instrumentation/comm[1]/squelch</path>
+			<path>instrumentation/nav[1]/volume</path>
+			<path>instrumentation/nav[1]/audio-btn</path>
+			<path>instrumentation/nav[1]/power-btn</path>
+			<path>instrumentation/nav[1]/frequencies/selected-mhz</path>
+			<path>instrumentation/nav[1]/frequencies/standby-mhz</path>
+			
+			<path>instrumentation/adf[0]/frequencies/selected-khz</path>
+			<path>instrumentation/adf[0]/volume</path>
+			<path>instrumentation/adf[0]/mode</path>
+			
+			<path>consumables/fuel/tank[0]/level-gal_us</path>
+			<path>consumables/fuel/tank[1]/level-gal_us</path>
+			<path>consumables/fuel/tank[2]/level-gal_us</path>
+			<path>consumables/fuel/tank[0]/selected</path>
+			<path>consumables/fuel/tank[1]/selected</path>
+			<path>consumables/fuel/both-tanks-selected</path>
+			
+			<path>controls/lighting/instruments-norm</path>
+			
+			<path>sim/co-poisoning/master</path>
+			<path>sim/co-poisoning/chance</path>
+			
+		</aircraft-data>
+		
+		
+		<!-- Include 2D panels -->
+		<panel>
+			<path>Aircraft/c150/Panels/c150-2d-panel.xml</path>
+			<visibility archive="y">false</visibility>
+		</panel>
+		<panel_2>
+			<path>Aircraft/c172/Panels/c172-trans-mini-panel.xml</path>
+		</panel_2>
+		
+		<!-- position the pilot viewpoint and angle -->
+		<view>
+			<internal archive="y">true</internal>
+			<config>
+				<x-offset-m archive="y">-0.25</x-offset-m>
+				<y-offset-m archive="y">0.39</y-offset-m>
+				<z-offset-m archive="y">1.21</z-offset-m>
+				<pitch-offset-deg>-7</pitch-offset-deg>
+				<default-field-of-view-deg type="double">76.5</default-field-of-view-deg>
+			</config>
+		</view>
+		
+		<!-- Position the co-pilot viewpoint and angle -->
+		<view n="101">
+			<name>Cockpit Right Seat View</name>
+			<type>lookfrom</type>
+			<internal type="bool">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<from-model-idx type="int">0</from-model-idx>
+				<x-offset-m type="double">0.25</x-offset-m>
+				<y-offset-m type="double">0.39</y-offset-m>
+				<z-offset-m type="double">1.21</z-offset-m>
+				<pitch-offset-deg type="double">-7</pitch-offset-deg>
+				<default-field-of-view-deg type="double">76.5</default-field-of-view-deg>
+				<limits>
+					<!-- disabled while working on the cabin -->
+					<enabled type="bool">false</enabled>
+					<left>
+						<heading-max-deg type="double">140</heading-max-deg>
+						<x-offset-max-m type="double">0.15</x-offset-max-m>
+						<x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+					</left>
+					<right>
+						<heading-max-deg type="double">140</heading-max-deg>
+						<x-offset-max-m type="double">0.15</x-offset-max-m>
+						<x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+					</right>
+				</limits>
+			</config>
+		</view>
+		
+		<view n="100">
+			<name>Right Wing View</name>
+			<type>lookfrom</type>
+			<internal>false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<from-model-idx type="int">0</from-model-idx>
+				<pitch-offset-deg>-3</pitch-offset-deg>
+				<heading-offset-deg>80</heading-offset-deg>
+				<x-offset-m type="double">10.00</x-offset-m>
+				<y-offset-m type="double">0.50</y-offset-m>
+				<z-offset-m type="double">1.10</z-offset-m>
+			</config>
+		</view>        
+		
+		<view n="1">
+			<config>
+				<target-z-offset-m archive="y" type="double">0.61</target-z-offset-m>
+			</config>
+		</view>
+		
+		<view n="2">
+			<config>
+				<target-z-offset-m archive="y" type="double">0.61</target-z-offset-m>
+			</config>
+		</view>
+		
+		<view n="3">
+			<config>
+				<target-z-offset-m archive="y" type="double">0.61</target-z-offset-m>
+			</config>
+		</view>
+		
+		<view n="4">
+			<config>
+				<target-z-offset-m archive="y" type="double">0.61</target-z-offset-m>
+			</config>
+		</view>
+		
+		<view n="5">
+			<config>
+				<target-z-offset-m archive="y" type="double">0.61</target-z-offset-m>
+			</config>
+		</view>
+		
+		<view n="6">
+			<config>
+				<target-z-offset-m archive="y" type="double">0.61</target-z-offset-m>
+			</config>
+		</view>
+		
+		<instrumentation>
+			<path>Systems/instrumentation.xml</path>
+		</instrumentation>
+		
+		<systems>
+			<path>Systems/systems.xml</path>
+			
+			<property-rule n="100">
+				<path>Aircraft/c150/Systems/c150-effects.xml</path>
+			</property-rule>
+			<property-rule n="101">
+				<path>Aircraft/c150/Models/Panel/Instruments/vorloc/vorloc-property-rules.xml</path>
+			</property-rule>
+		</systems>
+		
+		<flaps>
+			<setting>0.000</setting>
+			<setting>0.250</setting> <!-- Flaps 10 -->
+			<setting>0.500</setting> <!-- Flaps 20 -->
+			<setting>0.750</setting> <!-- Flaps 30 -->
+			<setting>1.000</setting> <!-- Flaps 40 -->
+		</flaps>
+		
+		<sound>
+			<path archive="y">Aircraft/c150/Sounds/c150-sound.xml</path>
+			<c150-engine>
+				<volume type="double">0.7</volume>
+			</c150-engine>
+			<c150-wind>
+				<volume type="double">0.7</volume>
+			</c150-wind>
+			<c150-click>
+				<volume type="double">0.7</volume>
+			</c150-click>
+		</sound>
+		
+		<help include="./help.xml">
+			<title>Cessna 150L</title>
+			<key>
+				<name>d / Shift-d</name>
+				<desc>select next/previous door</desc>
+			</key>
+			<key>
+				<name>Ctrl-D</name>
+				<desc>open/close selected door</desc>
+			</key>
+			<key>
+				<name>Shift-o</name>
+				<desc>operate priming pump</desc>
+			</key>
+			<key>
+				<name>=</name>
+				<desc>Show Aircraft Options dialog</desc>
+			</key>
+			
+		</help>
+		
+		<checklists include="c150-checklists.xml"/>
+		
+		<menubar>
+			<default>
+				<menu n="10">
+					<label>Cessna 150L</label>
+					<enabled type="bool">true</enabled>
+					<item>
+						<label>Select Livery</label>
+						<binding>
+							<command>nasal</command>
+							<script>aircraft.livery.dialog.open()</script>
+						</binding>
+					</item>
+					
+					<item>
+						<label>Immatriculation</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>c150-immat</dialog-name>
+						</binding>
+					</item>
+					
+					<item>
+						<label>Aircraft Options</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>c150-aircraft-dialog</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>Circuit Breakers</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>c150-circuit-breakers</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>Sound</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>c150-sound</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>CO-Poisoning</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>co-poisoning</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>------------------</label>
+						<enabled>false</enabled>
+					</item>
+					<item>
+						<label>About (in Browser)</label>
+						<binding>
+							<command>open-browser</command>
+							<url>https://wiki.flightgear.org/Cessna_150</url>
+						</binding>
+					</item>
+				</menu>
+			</default>
+		</menubar>
+		
+		<previews>
+			<preview>
+				<type>cockpit</type>
+				<path>Previews/cockpit1.jpg</path>
+				<splash type="bool">true</splash>
+			</preview>
+			<preview>
+				<type>cockpit</type>
+				<path>Previews/cockpit2.jpg</path>
+				<splash type="bool">true</splash>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<path>Previews/exterior1.jpg</path>
+				<splash type="bool">true</splash>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<path>Previews/exterior2.jpg</path>
+				<splash type="bool">true</splash>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<path>Previews/exterior3.jpg</path>
+				<splash type="bool">true</splash>
+			</preview>
+		</previews>
+		
+	</sim>
+	
+	<c150>
+		<debug-mode type="bool">false</debug-mode>	<!--	Show debug information about nasal systems	-->
+	</c150>
+	
+	<controls>
+		<anti-ice>
+			<pitot-heat type="bool">false</pitot-heat>
+		</anti-ice>
+		<circuit-breakers>
+			<instrument-lights type="bool">true</instrument-lights>
+			<nav-com-1 type="bool">true</nav-com-1>
+			<nav-com-2 type="bool">true</nav-com-2>
+			<nav-com-3 type="bool">true</nav-com-3>
+			<navigation-lights type="bool">true</navigation-lights>
+			<beacon type="bool">true</beacon>
+			<strobe type="bool">true</strobe>
+			<flaps type="bool">true</flaps>
+			<landing type="bool">true</landing>
+		</circuit-breakers>
+		<engines>
+			<engine n="0">
+				<primer-lever type="bool">false</primer-lever>
+				<primer type="int">0</primer>
+				<use-primer type="bool">false</use-primer>
+				<starter-cmd type="bool">false</starter-cmd>
+				<master-bat type="bool">false</master-bat>
+				<master-alt type="bool">false</master-alt>
+			</engine>
+		</engines>
+		<flight>
+			<!-- aileron-trim>0.027</aileron-trim -->
+			<aileron-trim>0.000</aileron-trim>
+			<rudder-trim>0.0</rudder-trim>
+			<flaps-cmd type="int">0</flaps-cmd>
+		</flight>
+		<lighting>
+			<nav-lights type="bool">false</nav-lights>
+			<dome-light type="bool">false</dome-light>
+			<beacon type="bool">false</beacon>
+			<strobe type="bool">false</strobe>
+			<landing-light type="bool">false</landing-light>
+			<instruments-norm type="double">0.0</instruments-norm>
+		</lighting>
+		<preflight>
+			<pull-nose-down type="bool">false</pull-nose-down>
+			<suck-stall-warning type="bool">false</suck-stall-warning>
+		</preflight>
+		<sun-visor>
+			<position-norm type="double">1.0</position-norm>
+		</sun-visor>
+		<windows>
+			<windowL-angle type="double">0.0</windowL-angle>
+			<windowR-angle type="double">0.0</windowR-angle>
+		</windows>
+	</controls>
+	
+	<autopilot>
+		<config>
+			<min-climb-speed-kt type="float">61.0</min-climb-speed-kt>
+			<best-climb-speed-kt type="float">76.0</best-climb-speed-kt>
+			<target-climb-rate-fpm type="float">400.0</target-climb-rate-fpm>
+			<target-descent-rate-fpm type="float">1000.0</target-descent-rate-fpm>
+			<elevator-adj-factor type="float">4000.0</elevator-adj-factor>
+			<integral-contribution type="float">0.01</integral-contribution>
+			<zero-pitch-throttle type="float">0.45</zero-pitch-throttle>
+			<zero-pitch-trim-full-throttle type="float">0.14</zero-pitch-trim-full-throttle>
+		</config>
+	</autopilot>
+	
+	<instrumentation>
+		<attitude-indicator>
+			<config>
+				<tumble-flag archive="y" type="bool">true</tumble-flag>
+			</config>
+		</attitude-indicator>
+		
+		<adf n="0">
+			<ident-audible type="bool">false</ident-audible>
+			<volume type="double">0.0</volume>
+		</adf>
+		<clock>
+			<hobbs-meter>
+				<sec type="double">0.0</sec>
+			</hobbs-meter>
+			<tach-meter>
+				<sec type="double">0.0</sec>
+			</tach-meter>
+		</clock>
+		<comm n="0">
+			<power-btn type="bool">1</power-btn>
+			<volume type="double">0.0</volume>
+		</comm>
+		<comm n="1">
+			<power-btn type="bool">1</power-btn>
+			<volume type="double">0.0</volume>
+		</comm>
+		<nav n="0">
+			<volume type="double">0.7</volume>
+			<power-btn type="bool">false</power-btn>
+		</nav>
+		<nav n="1">
+			<volume type="double">0.7</volume>
+			<power-btn type="bool">false</power-btn>
+		</nav>
+	</instrumentation>
+	
+	<engines>
+		<engine>
+			<carb_ice type="float">0.0</carb_ice>
+			<complex-engine-procedures type="bool">1</complex-engine-procedures>
+			<oil-level type="double">5.5</oil-level>
+			<oil-lacking type="double">0.0</oil-lacking>
+			<oil_consumption_allowed type="bool">false</oil_consumption_allowed>
+			<oil-powergain-factor type="double">1</oil-powergain-factor>
+		</engine>
+	</engines>
+	
+	<environment>
+		<aircraft-effects>
+			<cabin-heat-set type="double">0.0</cabin-heat-set>
+			<cabin-air-set type="double">0.0</cabin-air-set>
+			<overhead-vent-left-set type="double">0.0</overhead-vent-left-set>
+			<overhead-vent-right-set type="double">0.0</overhead-vent-right-set>
+		</aircraft-effects>
+	</environment>
+	
+	<input>
+		<keyboard>
+			<key n="4">
+				<name>Ctrl-D</name>
+				<desc>Open/close selected door</desc>
+				<binding>
+					<command>nasal</command>
+					<script>c150.toggle_door()</script>
+				</binding>
+			</key>
+			
+			<key n="61">
+				<name>=</name>
+				<desc>Show Aircraft Options dialog</desc>
+				<binding>
+					<command>dialog-show</command>
+					<dialog-name>c150-aircraft-dialog</dialog-name>
+				</binding>
+			</key>
+			
+			<key n="68">
+				<name>Shift-d</name>
+				<desc>Select previous door</desc>
+				<binding>
+					<command>nasal</command>
+					<script>c150.previous_door()</script>
+				</binding>
+			</key>
+			
+			<key n="100">
+				<name>d</name>
+				<desc>Select next door</desc>
+				<binding>
+					<command>nasal</command>
+					<script>c150.next_door()</script>
+				</binding>
+			</key>
+			
+			<!-- map keys for priming pump -->
+			<key n="79"> 
+				<name>Shift-o</name>
+				<desc>Operate Priming Pump.</desc>
+				<binding> 
+					<command>nasal</command>
+					<script>
+						c150.pumpPrimer();
+					</script>
+				</binding>
+			</key>
+			
+		</keyboard>
+	</input>
+	
+	<nasal>
+		<updateloop>
+			<file>Aircraft/Generic/updateloop.nas</file>
+		</updateloop>
+		<math_ext>
+			<file>Nasal/Generic/math_ext.nas</file>
+		</math_ext>
+		<std>
+			<file>Nasal/std/Vector.nas</file>
+		</std>
+		<c150>
+			<file>Aircraft/Generic/updateloop.nas</file>
+			<file>Aircraft/Generic/limits.nas</file>
+			<file>Nasal/c150.nas</file>
+			<file>Nasal/electrical.nas</file>
+			<file>Nasal/engine.nas</file>
+			<file>Nasal/perf-test.nas</file>
+			<file>Nasal/immat.nas</file>
+			<file>Nasal/flashlight.nas</file>
+			<file>Nasal/co-poisoning.nas</file>
+			<file>Nasal/tiedowns.nas</file>
+			<file>Nasal/wheel_chocks.nas</file>
+		</c150>
+		<autochecklist>
+			<file>Aircraft/Generic/autochecklist.nas</file>
+		</autochecklist>
+		<co-detector>
+			<file>Models/Panel/Other/CODetector/CODetector.nas</file>
+		</co-detector>
+	</nasal>
+	
+	<payload>
+		<weight>
+			<name type="string">Pilot</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
+			<min-lb type="double">0  </min-lb>
+			<max-lb type="double">300</max-lb>
+		</weight>
+		<weight>
+			<name type="string">Passenger 1</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
+			<min-lb type="double">0  </min-lb>
+			<max-lb type="double">300</max-lb>
+		</weight>
+		<weight>
+			<name type="string">Baggages</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]"/>
+			<min-lb type="double">0  </min-lb>
+			<max-lb type="double">100</max-lb>
+		</weight>
+	</payload>
+	
+	<consumables>
+		<fuel>
+			<tank n="0">
+				<name>Left wing</name>
+				<level-gal_us type="double">11.25</level-gal_us>
+				<selected type="bool">true</selected>
+				<water-contamination type="double">0.0</water-contamination>
+				<sample-water-contamination type="double">0.0</sample-water-contamination>
+				<unusable-gal_us type="double">1.75</unusable-gal_us>
+			</tank>
+			<tank n="1">
+				<name>Right wing</name>
+				<level-gal_us type="double">11.25</level-gal_us>
+				<selected type="bool">true</selected>
+				<water-contamination type="double">0.0</water-contamination>
+				<sample-water-contamination type="double">0.0</sample-water-contamination>
+				<unusable-gal_us type="double">1.75</unusable-gal_us>
+			</tank>
+			<tank n="2">
+				<name>Fuel Strainer</name>
+				<level-gal_us type="double">0.0</level-gal_us>
+				<selected type="bool">true</selected>
+				<fuel-sample-taken type="bool">false</fuel-sample-taken>
+				<water-contamination type="double">0.0</water-contamination>
+				<sample-water-contamination type="double">0.0</sample-water-contamination>
+			</tank>
+			<both-tanks-selected type="bool">true</both-tanks-selected>
+		</fuel>
+	</consumables>
+	
+	<limits>	<!--	reference: TCDS p.6 unless noted otherwise	-->
+		<max-positive-g>4.4</max-positive-g>
+		<max-negative-g>-1.76</max-negative-g>
+		
+		<!--	todo: max positive g with flaps extended is +3.5	-->
+		
+		<!--	All airspeed values are in knots	-->
+		<vne>141</vne>	<!-- 162 mph -->
+		<max-flap-extension-speed>
+			<flaps>1.0</flaps>
+			<speed>87</speed>	<!-- 100 mph -->
+		</max-flap-extension-speed>
+		
+		<!-- 1600*4.4 -->
+		<!--max-lift-force>7040</max-lift-force-->
+		
+		<mass-and-balance>
+			<maximum-ramp-mass-lbs>1600</maximum-ramp-mass-lbs>
+			<maximum-takeoff-mass-lbs>1600</maximum-takeoff-mass-lbs>
+			<maximum-landing-mass-lbs>1600</maximum-landing-mass-lbs>
+			<cg>
+				<dimension type="string">in</dimension>
+				<limit>
+					<entry>
+						<position type="double">32.9</position>
+						<mass-lbs type="double">1600</mass-lbs>
+					</entry>
+					<entry>
+						<position type="double">37.5</position>
+						<mass-lbs type="double">1600</mass-lbs>
+					</entry>
+					<entry>
+						<position type="double">31.5</position>
+						<mass-lbs type="double">1280</mass-lbs>	<!-- or less -->
+					</entry>
+					<entry>
+						<position type="double">37.5</position>
+						<mass-lbs type="double">1280</mass-lbs>	<!-- or less -->
+					</entry>
+				</limit>
+			</cg>
+		</mass-and-balance>
+	</limits>
+	
+	<rotors> <!-- alias unused, MP-transmitted properties -->
+		<main>
+			<blade n="0">
+				<position-deg alias="/sim/model/c150/tiedowns/left/pitch-deg"/>
+				<flap-deg alias="/sim/model/c150/tiedowns/left/heading-deg"/>
+			</blade>
+			<blade n="1">
+				<position-deg alias="/sim/model/c150/tiedowns/right/pitch-deg"/>
+				<flap-deg alias="/sim/model/c150/tiedowns/right/heading-deg"/>
+			</blade>
+			<blade n="2">
+				<position-deg alias="/sim/model/c150/tiedowns/tail/pitch-deg"/>
+				<flap-deg alias="/sim/model/c150/tiedowns/tail/heading-deg"/>
+			</blade>
+			<blade n="3">
+				<position-deg alias="/sim/model/c150/tiedowns/left/length" />
+				<flap-deg alias="/sim/model/c150/tiedowns/right/length" />
+			</blade>
+			<rpm alias="/sim/model/c150/tiedowns/tail/length" />
+		</main>
+	</rotors>
+	
+</PropertyList>

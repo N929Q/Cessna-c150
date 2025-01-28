@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This simulates the A.R.C. IN-525 VOR/LOC/Glideslope Indicator
+	
+	ref. https://gsplanestuff.com/products/cessna-arc-rt-328t-in-514r-in-525a-or-in-514b-in-525b-navcom-install-manual -->
+<PropertyList>
+
+	<path>vorloc.ac</path>
+
+	<params>
+		<radial>instrumentation/nav[0]/radials/selected-deg</radial>
+		<hdg-needle>instrumentation/nav[0]/heading-needle-deflection-norm</hdg-needle>
+		<gs-needle>instrumentation/nav[0]/gs-needle-deflection-norm</gs-needle>
+		<off-flag>instrumentation/nav[0]/off-flag</off-flag>
+		<instrument-light-volts>systems/electrical/outputs/instrument-lights-norm</instrument-light-volts>
+	</params>
+
+	<effect>
+		<inherits-from>../../../Effects/interior/instrument-glass</inherits-from>
+		<object-name>vorloc.glass</object-name>
+	</effect>
+
+	<animation>
+		<type>material</type>
+		<object-name>vorloc</object-name>
+		<object-name>vorloc.knob</object-name>
+		<object-name>vorloc.loc_needle</object-name>
+		<object-name>vorloc.gs_needle</object-name>
+		<object-name>vorloc.off_flag</object-name>
+		<object-name>vorloc.bc_light</object-name>
+		<object-name>vorloc.heading_card</object-name>
+		<emission>
+			<red>   1.0 </red>
+			<green> 0.2 </green>
+			<blue>  0.0 </blue>
+			<factor-prop alias="../../../params/instrument-light-volts" />
+		</emission>
+	</animation>
+
+	<!--	Needles	-->
+	<animation>
+		<type>translate</type>
+		<object-name>vorloc.loc_needle</object-name>
+		<property alias="../../params/hdg-needle" />
+		<interpolation>
+			<entry>
+				<ind> -1 </ind>
+				<dep> -0.017 </dep>
+			</entry>
+			<entry>
+				<ind>  0 </ind>
+				<dep>  0.0    </dep>
+			</entry>
+			<entry>
+				<ind>  1 </ind>
+				<dep>  0.017 </dep>
+			</entry>
+		</interpolation>
+		<axis>
+			<y> 1 </y>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>vorloc.gs_needle</object-name>
+		<property alias="../../params/gs-needle" />
+		<interpolation>
+			<entry>
+				<ind> -1 </ind>
+				<dep> -0.017 </dep>
+			</entry>
+			<entry>
+				<ind>  0 </ind>
+				<dep>  0.0    </dep>
+			</entry>
+			<entry>
+				<ind>  1 </ind>
+				<dep>  0.017 </dep>
+			</entry>
+		</interpolation>
+		<axis>
+			<z> 1 </z>
+		</axis>
+	</animation>
+
+	<!--	Flags	-->
+	<animation>
+		<type>rotate</type>
+		<object-name>vorloc.off_flag</object-name>
+		<property alias="../../params/off-flag" />
+		<factor>-180</factor>
+		<axis>
+			<x>1</x>
+		</axis>
+		<center>
+			<y-m>0.013296</y-m>
+		</center>
+	</animation>
+
+	<!--	Azimuth Card	-->
+	<animation>
+		<type>rotate</type>
+		<object-name>vorloc.heading_card</object-name>
+		<property alias="../../params/radial" />
+		<axis>
+			<x> 1 </x>
+		</axis>
+	</animation>
+
+	<!--	Knob	-->
+	<animation>
+		<type>knob</type>
+		<object-name>vorloc.knob</object-name>
+		<property alias="../../params/radial" />
+		<center>
+			<y-m> -0.0295 </y-m>
+			<z-m> -0.0295 </z-m>
+		</center>
+		<axis>
+			<x> -1 </x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property alias="../../../../params/radial" />
+				<factor>1</factor>
+				<min>0</min>
+				<max>360</max>
+				<wrap>1</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<tooltip-id>in514-knob</tooltip-id>
+				<mapping>heading</mapping>
+				<label>NAV Radial: %3d deg</label>
+				<property alias="../../../../params/radial" />
+			</binding>
+		</hovered>
+	</animation>
+
+</PropertyList>

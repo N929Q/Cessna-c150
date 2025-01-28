@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+	
+	<path>adf.ac</path>
+
+	<effect>
+		<inherits-from>../../../Effects/interior/instrument-glass</inherits-from>
+		<object-name>adf.glass</object-name>
+	</effect>
+	
+	<animation>
+		<object-name>adf</object-name>
+		<object-name>adf.static</object-name>
+		<object-name>adf.face</object-name>
+		<object-name>adf.needle</object-name>
+	</animation>
+	
+	<effect>
+		<inherits-from>Aircraft/c150/Models/Effects/interior/flashlight</inherits-from>
+		<object-name>adf</object-name>
+		<object-name>adf.static</object-name>
+		<object-name>adf.face</object-name>
+		<object-name>adf.needle</object-name>
+		<object-name>adf.knob</object-name>
+	</effect>
+	
+	<animation>
+		<type>material</type>
+		<object-name>adf</object-name>
+		<object-name>adf.static</object-name>
+		<object-name>adf.face</object-name>
+		<object-name>adf.needle</object-name>
+		<emission>
+			<red>1.000</red>
+			<green>0.20</green>
+			<blue>0.000</blue>
+			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>adf.face</object-name>
+		<property>instrumentation/adf/rotation-deg[0]</property>
+		<factor>-1</factor>
+		<axis>
+			<x> -1 </x>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>adf.needle</object-name>
+		<property>instrumentation/adf/indicated-bearing-deg</property>
+		<axis>
+			<x> -1 </x>
+		</axis>
+	</animation>
+	
+</PropertyList>

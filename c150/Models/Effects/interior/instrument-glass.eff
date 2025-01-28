@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+	<name>instrument-glass</name>
+	<inherits-from>Effects/glass</inherits-from><!-- from fgdata /Effects-->
+
+	<parameters>
+		<frost-level>0</frost-level>
+		<fog-level>0</fog-level>
+		<texture n="3">
+			<type>cubemap</type>
+			<images>
+				<positive-x>Aircraft/DA40NG/Models/Effects/cubemaps/interior_reflection/0004.png</positive-x>
+				<negative-x>Aircraft/DA40NG/Models/Effects/cubemaps/interior_reflection/0002.png</negative-x>
+				<positive-y>Aircraft/DA40NG/Models/Effects/cubemaps/interior_reflection/0001.png</positive-y>
+				<negative-y>Aircraft/DA40NG/Models/Effects/cubemaps/interior_reflection/0003.png</negative-y>
+				<positive-z>Aircraft/DA40NG/Models/Effects/cubemaps/interior_reflection/0006.png</positive-z>
+				<negative-z>Aircraft/DA40NG/Models/Effects/cubemaps/interior_reflection/0005.png</negative-z>
+			</images>
+		</texture>
+		<use-reflection type="int">1</use-reflection>
+		<reflection-strength type="float"><use>sim/model/glass-effects/reflection-emission-strength</use></reflection-strength>
+		<rnorm>0</rnorm>
+		<gsnorm>0</gsnorm>
+	</parameters>
+
+</PropertyList>

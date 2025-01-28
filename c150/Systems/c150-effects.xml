@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+	<!--	Rain Splash Vector by mimino, thanks!	-->
+	<filter>
+		<output type="float">
+			<property>environment/aircraft-effects/splash-vector-x</property>
+		</output>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<sum>
+					<product>
+						<value>0.01</value>
+						<property>velocities/airspeed-kt</property>
+						<cos>
+							<property>orientation/side-slip-rad</property>
+						</cos>
+						<cos>
+							<deg2rad>
+								<property>orientation/alpha-deg</property>
+							</deg2rad>
+						</cos>
+					</product>
+					<sin>
+						<deg2rad>
+							<property>orientation/pitch-deg</property>
+						</deg2rad>
+					</sin>
+				</sum>
+			</expression>
+		</input>
+	</filter>
+
+	<filter>
+		<output type="float">
+			<property>environment/aircraft-effects/splash-vector-y</property>
+		</output>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<sum>
+					<product>
+						<value>-0.01</value>
+						<property>velocities/airspeed-kt</property>
+						<sin>
+							<property>orientation/side-slip-rad</property>
+						</sin>
+					</product>
+					<product>
+						<cos>
+							<deg2rad>
+								<property>orientation/pitch-deg</property>
+							</deg2rad>
+						</cos>
+						<sin>
+							<deg2rad>
+								<property>orientation/roll-deg</property>
+							</deg2rad>
+						</sin>
+					</product>
+				</sum>
+			</expression>
+		</input>
+	</filter>
+
+	<filter>
+		<output type="float">
+			<property>environment/aircraft-effects/splash-vector-z</property>
+		</output>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<sum>
+					<product>
+						<value>0.01</value>
+						<property>velocities/airspeed-kt</property>
+						<cos>
+							<property>orientation/side-slip-rad</property>
+						</cos>
+						<sin>
+							<deg2rad>
+								<property>orientation/alpha-deg</property>
+							</deg2rad>
+						</sin>
+					</product>
+					<product>
+						<value>-1.0</value>
+						<cos>
+							<deg2rad>
+								<property>orientation/pitch-deg</property>
+							</deg2rad>
+						</cos>
+						<cos>
+							<deg2rad>
+								<property>orientation/roll-deg</property>
+							</deg2rad>
+						</cos>
+					</product>
+				</sum>
+			</expression>
+		</input>
+	</filter>
+	
+	<!--	Lights -->
+	<filter>
+		<type>gain</type>
+		<input>systems/electrical/outputs/navigtion-lights</input>
+		<gain>0.0704</gain> <!-- 1 / 14.2 -->
+		<output>systems/electrical/outputs/navigation-lights-norm</output>
+	</filter>
+	<filter>
+		<type>gain</type>
+		<input>systems/electrical/outputs/beacon</input>
+		<gain>0.0704</gain> <!-- 1 / 14.2 -->
+		<output>systems/electrical/outputs/beacon-norm</output>
+	</filter>
+	<filter>
+		<type>gain</type>
+		<input>systems/electrical/outputs/strobe-lights</input>
+		<gain>0.0704</gain> <!-- 1 / 14.2 -->
+		<output>systems/electrical/outputs/strobe-lights-norm</output>
+	</filter>
+	<filter>
+		<type>gain</type>
+		<input>systems/electrical/outputs/landing-light</input>
+		<gain>0.0704</gain> <!-- 1 / 14.2 -->
+		<output>systems/electrical/outputs/landing-light-norm</output>
+	</filter>
+	<filter>
+		<type>gain</type>
+		<input>systems/electrical/outputs/instrument-lights</input>
+		<gain>0.0704</gain> <!-- 1 / 14.2 -->
+		<output>systems/electrical/outputs/instrument-lights-norm</output>
+	</filter>
+	<filter>
+		<type>gain</type>
+		<input>systems/electrical/outputs/dome-light</input>
+		<gain>0.0704</gain> <!-- 1 / 14.2 -->
+		<output>systems/electrical/outputs/dome-light-norm</output>
+	</filter>
+	
+	<!--	Emission from Panel and Instrument Lights	-->
+	<filter>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<sum>
+					<product>
+						<property>/systems/electrical/outputs/instrument-lights</property>
+						<value>0.3</value>
+					</product>
+					<product>
+						<property>/systems/electrical/outputs/dome-light</property>
+						<value>0.8</value>
+					</product>
+				</sum>
+			</expression>
+			<min>0.0</min>
+			<max>1.0</max>
+		</input>
+		<output>/sim/model/glass-effects/emission-strength</output>
+	</filter>
+	<filter>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<!-- adapted from Cessna 172p -->
+		<input>
+			<expression>
+				<sum>
+					<table>
+						<property>/sim/model/glass-effects/emission-strength</property>
+						<entry><ind>0.0</ind><dep>0.01</dep></entry>
+						<entry><ind>0.3</ind><dep>0.2</dep></entry>
+						<entry><ind>1.0</ind><dep>0.9</dep></entry>
+					</table>
+					<property>/rendering/scene/diffuse/red</property>
+				</sum>
+			</expression>
+			<min>0.01</min>
+			<max>0.9</max>
+		</input>
+		<output>/sim/model/glass-effects/reflection-emission-strength</output>
+	</filter>
+
+</PropertyList>

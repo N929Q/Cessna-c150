@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<external_reactions>
+	<force name="pull_nose_down" frame="BODY">
+		<location unit="M">
+			<x>-1.00</x>
+			<y> 0.00</y>
+			<z> 0.05</z>
+		</location>
+		<direction>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</direction>
+	</force>
+	<!-- Tiedowns use body frame (x positive forward, y positive
+	right, z positive down).
+	-->
+	<force name="tiedown-left" frame="BODY">
+		<location unit="M">
+			<x> -0.7  </x>
+			<y> -1.97 </y>
+			<z>  0.46 </z>
+		</location>
+		<direction>
+			<x>0.0</x>
+			<y>0.0</y>
+			<z>1.0</z>
+		</direction>
+	</force>
+	<force name="tiedown-right" frame="BODY">
+		<location unit="M">
+			<x> -0.7  </x>
+			<y>  1.97 </y>
+			<z>  0.46 </z>
+		</location>
+		<direction>
+			<x>0.0</x>
+			<y>0.0</y>
+			<z>1.0</z>
+		</direction>
+	</force>
+	<force name="tiedown-tail" frame="BODY">
+		<location unit="M">
+			<x>  5.125 </x>
+			<y>  0.0   </y>
+			<z> -0.357 </z>
+		</location>
+		<direction>
+			<x>0.0</x>
+			<y>0.0</y>
+			<z>1.0</z>
+		</direction>
+	</force>
+</external_reactions>

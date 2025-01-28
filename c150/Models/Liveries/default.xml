@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--	Default livery, re-done based on the original blue-and-white livery	-->
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name type="string">default (custom immatriculation)</name>
+				<texture>c150.png</texture>
+			</livery>
+			<c150>
+				<show-immat>true</show-immat>
+			</c150>
+		</model>
+	</sim>
+</PropertyList>

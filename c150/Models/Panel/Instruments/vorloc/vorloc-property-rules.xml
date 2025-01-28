@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+	<filter>
+		<type>noise-spike</type>
+		<max-rate-of-change>3</max-rate-of-change>
+		<input>
+			<condition>
+				<property>instrumentation/nav/in-range</property>
+				<greater-than>
+					<property>systems/electrical/outputs/nav</property>
+					<value>9.0</value>
+				</greater-than>
+			</condition>
+			<value>1</value>
+		</input>
+		<input>
+			<value>0</value>
+		</input>
+		<output>/instrumentation/nav[0]/off-flag</output>
+	</filter>
+	<filter>
+		<type>noise-spike</type>
+		<max-rate-of-change>3</max-rate-of-change>
+		<input>
+			<condition>
+				<property>instrumentation/nav[1]/in-range</property>
+				<greater-than>
+					<property>systems/electrical/outputs/nav[1]</property>
+					<value>9.0</value>
+				</greater-than>
+			</condition>
+			<value>1</value>
+		</input>
+		<input>
+			<value>0</value>
+		</input>
+		<output>/instrumentation/nav[1]/off-flag</output>
+	</filter>
+
+</PropertyList>

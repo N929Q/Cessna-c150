@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--	G-BCVG livery
+	References:	https://www.jetphotos.com/registration/G-BCVG	-->
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name type="string">G-BCVG (Reims-Cessna F-150L)</name>
+				<texture>Liveries/G-BCVG.png</texture>
+			</livery>
+			<c150>
+				<show-immat>false</show-immat>
+				<immat type="string">G-BCVG</immat>	<!--	shown on the instrument panel	-->
+			</c150>
+		</model>
+	</sim>
+</PropertyList>

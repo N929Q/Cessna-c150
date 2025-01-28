@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--	G-BBNJ livery
+	References:	https://www.jetphotos.com/registration/G-BBNJ	-->
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name type="string">G-BBNJ (Cessna 150L)</name>
+				<texture>Liveries/G-BBNJ.png</texture>
+			</livery>
+			<c150>
+				<show-immat>false</show-immat>
+				<immat type="string">G-BBNJ</immat>	<!--	shown on the instrument panel	-->
+			</c150>
+		</model>
+	</sim>
+</PropertyList>

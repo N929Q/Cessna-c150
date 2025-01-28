@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+    <name>model-interior-bump</name>
+    <inherits-from>Effects/model-interior</inherits-from>
+    <parameters>
+
+		<!-- Normal Map -->
+		<normalmap-enabled type="int">0</normalmap-enabled>
+		<normalmap-dds type="int">0</normalmap-dds>
+		<normalmap-tiling type="float">1.0</normalmap-tiling>
+		<texture n="2">
+			<image>Aircraft/Generic/Effects/null_bumpspec.png</image>
+			<type>2d</type>
+			<filter>linear-mipmap-linear</filter>
+			<wrap-s>clamp</wrap-s>
+			<wrap-t>clamp</wrap-t>
+			<internal-format>normalized</internal-format>
+		</texture>
+
+    </parameters>
+
+    <technique n="3">
+        <pass>
+            <texture-unit n="800">
+                <unit>2</unit>
+                <type><use>texture[2]/type</use></type>
+                <image><use>texture[2]/image</use></image>
+                <filter><use>texture[2]/filter</use></filter>
+                <wrap-s><use>texture[2]/wrap-s</use></wrap-s>
+                <wrap-t><use>texture[2]/wrap-t</use></wrap-t>
+            </texture-unit>
+            
+
+			   <uniform n="800">
+				   <name>normal_texture</name>
+				   <type>sampler-2d</type>
+				   <value type="int">2</value>
+			   </uniform>
+
+      
+			   <uniform n="801">
+				   <name>nmap_enabled</name>
+				   <type>int</type>
+				   <value>
+					   <use>normalmap-enabled</use>
+				   </value>
+			   </uniform>
+
+			   <uniform n="802">
+				   <name>nmap_dds</name>
+				   <type>int</type>
+				   <value>
+					   <use>normalmap-dds</use>
+				   </value>
+			   </uniform>
+
+			   <uniform n="803">
+				   <name>nmap_tile</name>
+				   <type>float</type>
+				   <value>
+					   <use>normalmap-tiling</use>
+				   </value>
+			   </uniform>
+
+            <program>
+                <vertex-shader>Aircraft/c150/Models/Shaders/model-interior-ALS-detailed-bump.vert</vertex-shader>
+                <fragment-shader>Aircraft/c150/Models/Shaders/model-interior-ALS-detailed-bump.frag</fragment-shader>
+                <fragment-shader>Shaders/secondary_lights.frag</fragment-shader>
+                <fragment-shader>Shaders/noise.frag</fragment-shader>
+                <fragment-shader>Shaders/filters-ALS.frag</fragment-shader>
+            </program>
+        </pass>
+    </technique>
+
+
+</PropertyList>

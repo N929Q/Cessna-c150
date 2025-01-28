@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+************************************************************************
+JSBSim Cessna 150L.
+
+Started May 2005 by Harald Johnsen
+
+Cockpit Adjusted June 2011 by Tom Haigh
+
+FDM/Engine Adjusted June 2011 by Ron Jensen
+
+Overhauling 2016 by Harald Johnsen
+************************************************************************
+-->
+
+<PropertyList include="c150-common.xml">
+	
+	<sim>
+		
+		<description>Cessna FRA-150L Aerobat</description>
+		
+		<flight-model archive="y">jsb</flight-model>
+		<aero archive="y">fra150l</aero>
+		
+		<variant-of>c150</variant-of>
+		
+	</sim>
+	
+</PropertyList>

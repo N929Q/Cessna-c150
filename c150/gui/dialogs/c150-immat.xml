@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <name>c150-immat</name>
+  <layout>vbox</layout>
+  <modal>false</modal>
+  <draggable>true</draggable>
+
+    <color>
+        <red type="float">0.6</red>
+        <green type="float">0.65</green>
+        <blue type="float">0.55</blue>
+        <alpha type="float">0.85</alpha>
+    </color>
+
+  <group>
+    <layout>hbox</layout>
+    <text>
+      <label>Immatriculation</label>
+    </text>
+  </group>
+
+  <group>
+    <layout>hbox</layout>
+    <input>
+      <property>/sim/model/c150/immat</property>
+      <type>STRING</type>
+      <width>100</width>
+    </input>
+  </group>
+
+  <group>
+    <layout>hbox</layout>
+    <empty><stretch>true</stretch></empty>
+    <button>
+      <legend>OK</legend>
+      <equal>true</equal>
+      <default>true</default>
+      <key>Esc</key>
+      <binding><command>dialog-apply</command></binding>
+      <binding><command>dialog-close</command></binding>
+    </button>
+    <empty><stretch>true</stretch></empty>
+  </group>
+
+</PropertyList>
+

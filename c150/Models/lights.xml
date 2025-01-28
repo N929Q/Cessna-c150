@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+	<path>lights.ac</path>
+	
+	<!--	The C150L is equipped with the following external lights:
+	
+		Navigation Lights	3	wing tips and tail fin
+		Beacon			1	tail fin
+		Strobe Lights		2	wing tips
+		Landing Light		1	nose
+	-->
+	<params>
+		<nav-lights type="string">systems/electrical/outputs/navigation-lights-norm</nav-lights>
+		<strobe-lights type="string">systems/electrical/outputs/strobe-lights-norm</strobe-lights>
+		<beacon type="string">systems/electrical/outputs/beacon-norm</beacon>
+		<landing-light type="string">systems/electrical/outputs/landing-light-norm</landing-light>
+	</params>
+	
+	<!--	Navigation Lights	-->
+	<light>
+		<name>red-navlight</name>
+		<type>spot</type>
+		<position>
+			<x-m> 1.0479</x-m>
+			<y-m>-5</y-m>
+			<z-m> 0.68139</z-m>
+		</position>
+		<direction>
+			<x>  0.0 </x>
+			<y> -1.0 </y>
+			<z>  0.0 </z>
+		</direction>
+		<ambient>
+			<r>1.0</r>
+			<g>0.1</g>
+			<b>0.1</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>1.0</r>
+			<g>0.1</g>
+			<b>0.1</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>1.0</r>
+			<g>0.1</g>
+			<b>0.1</b>
+			<a>1</a>
+		</specular>
+		<attenuation>
+			<c>1.0</c>
+			<l>1.5</l>
+			<q>1.8</q>
+		</attenuation>
+		<spot-exponent>2</spot-exponent>
+		<spot-cutoff>70</spot-cutoff>
+		<range-m>5</range-m>
+		<dim-factor>
+			<property alias="/params/nav-lights" />
+		</dim-factor>
+	</light>
+	<light>
+		<name>green-navlight</name>
+		<type>spot</type>
+		<position>
+			<x-m> 1.0479</x-m>
+			<y-m> 5</y-m>
+			<z-m> 0.68139</z-m>
+		</position>
+		<direction>
+			<x>  0.0 </x>
+			<y>  1.0 </y>
+			<z>  0.0 </z>
+		</direction>
+		<ambient>
+			<r>0.1</r>
+			<g>1.0</g>
+			<b>0.1</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>0.1</r>
+			<g>1.0</g>
+			<b>0.1</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>0.1</r>
+			<g>1.0</g>
+			<b>0.1</b>
+			<a>1</a>
+		</specular>
+		<attenuation>
+			<c>1.0</c>
+			<l>1.5</l>
+			<q>1.8</q>
+		</attenuation>
+		<spot-exponent>2</spot-exponent>
+		<spot-cutoff>70</spot-cutoff>
+		<range-m>5</range-m>
+		<dim-factor>
+			<property alias="/params/nav-lights" />
+		</dim-factor>
+	</light>
+	<light>
+		<name>tail-navlight</name>
+		<type>spot</type>
+		<position>
+			<x-m>6.16278</x-m>
+			<y-m>0.0</y-m>
+			<z-m>1.1038</z-m>
+		</position>
+		<direction>
+			<x>  1.0 </x>
+			<y>  0.0 </y>
+			<z>  0.0 </z>
+		</direction>
+		<ambient>
+			<r>0.5</r>
+			<g>0.5</g>
+			<b>0.5</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>0.5</r>
+			<g>0.5</g>
+			<b>0.5</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>0.5</r>
+			<g>0.5</g>
+			<b>0.5</b>
+			<a>1</a>
+		</specular>
+		<attenuation>
+			<c>1.0</c>
+			<l>1.5</l>
+			<q>1.8</q>
+		</attenuation>
+		<spot-exponent>2</spot-exponent>
+		<spot-cutoff>70</spot-cutoff>
+		<range-m>5</range-m>
+		<dim-factor>
+			<property alias="/params/nav-lights" />
+		</dim-factor>
+	</light>
+	<model>
+		<name>red-navlight-als</name>
+		<path>Effects/exterior/lights/red-navlight.xml</path>
+		<offsets>
+			<x-m> 1.0479</x-m>
+			<y-m>-4.99</y-m>
+			<z-m>0.68139</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>green-navlight-als</name>
+		<path>Effects/exterior/lights/green-navlight.xml</path>
+		<offsets>
+			<x-m> 1.0479</x-m>
+			<y-m>4.99</y-m>
+			<z-m>0.68139</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>tail-navlight-als</name>
+		<path>Effects/exterior/lights/tail-navlight.xml</path>
+		<offsets>
+			<x-m>6.16278</x-m>
+			<y-m>0.0</y-m>
+			<z-m>1.1038</z-m>
+		</offsets>
+	</model>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LeftNavLightOn</object-name>
+		<object-name>RightNavLightOn</object-name>
+		<object-name>RearNavLightOn</object-name>
+		<condition>
+			<property alias="/params/nav-lights" />
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>LeftNavLightOn</object-name>
+		<nopreview/>
+		<offset-m>5.60</offset-m>
+		<axis>
+			<x>2.16</x>
+			<y>-4.964</y>
+			<z>0.683</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>RightNavLightOn</object-name>
+		<nopreview/>
+		<offset-m>5.60</offset-m>
+		<axis>
+			<x>2.16</x>
+			<y>4.964</y>
+			<z>0.683</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>RearNavLightOn</object-name>
+		<nopreview/>
+		<offset-m>7.35</offset-m>
+		<axis>
+			<x>7.30</x>
+			<y>0.0</y>
+			<z>1.166</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>billboard</type>
+		<object-name>LeftNavLightOn</object-name>
+	</animation>
+	<animation>
+		<type>billboard</type>
+		<object-name>RightNavLightOn</object-name>
+	</animation>
+	<animation>
+		<type>billboard</type>
+		<object-name>RearNavLightOn</object-name>
+	</animation>
+	<!--	Strobe Lights	-->
+	<light>
+		<name>left-strobe</name>
+		<type>spot</type>
+		<position>
+			<x-m> 1.0479</x-m>
+			<y-m>-5</y-m>
+			<z-m> 0.68139</z-m>
+		</position>
+		<direction>
+			<x>  0.0 </x>
+			<y> -1.0 </y>
+			<z>  0.0 </z>
+		</direction>
+		<ambient>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1</a>
+		</specular>
+		<attenuation>
+			<c>1.0</c>
+			<l>2.0</l>
+			<q>4.0</q>
+		</attenuation>
+		<spot-exponent>0.1</spot-exponent>
+		<spot-cutoff>89</spot-cutoff>
+		<range-m>30</range-m>
+		<dim-factor>
+			<property alias="/params/strobe-lights" />
+		</dim-factor>
+	</light>
+	<light>
+		<name>right-strobe</name>
+		<type>spot</type>
+		<position>
+			<x-m> 1.0479</x-m>
+			<y-m> 5</y-m>
+			<z-m> 0.68139</z-m>
+		</position>
+		<direction>
+			<x> 0.0 </x>
+			<y> 1.0 </y>
+			<z> 0.0 </z>
+		</direction>
+		<ambient>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1</a>
+		</specular>
+		<attenuation>
+			<c>1.0</c>
+			<l>2.0</l>
+			<q>4.0</q>
+		</attenuation>
+		<spot-exponent>0.1</spot-exponent>
+		<spot-cutoff>89</spot-cutoff>
+		<range-m>30</range-m>
+		<dim-factor>
+			<property alias="/params/strobe-lights" />
+		</dim-factor>
+	</light>
+	<model>
+		<name>left-strobe-als</name>
+		<path>Effects/exterior/lights/left-strobe.xml</path>
+		<offsets>
+			<x-m> 1.0479</x-m>
+			<y-m>-4.99</y-m>
+			<z-m> 0.68139</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>right-strobe-als</name>
+		<path>Effects/exterior/lights/right-strobe.xml</path>
+		<offsets>
+			<x-m> 1.0479</x-m>
+			<y-m> 4.99</y-m>
+			<z-m> 0.68139</z-m>
+		</offsets>
+	</model>
+	<!--	Flashing Beacon	-->
+	<light>
+		<name>beacon</name>
+		<type>point</type>
+		<position>
+			<x-m>5.545</x-m>
+			<y-m>0.0</y-m>
+			<z-m>1.28262</z-m>
+		</position>
+		<ambient>
+			<r>0.9</r>
+			<g>0.2</g>
+			<b>0.2</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>0.9</r>
+			<g>0.2</g>
+			<b>0.2</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>0.9</r>
+			<g>0.2</g>
+			<b>0.2</b>
+			<a>1</a>
+		</specular>
+		<attenuation>
+			<c>1.0</c>
+			<l>1.5</l>
+			<q>2.0</q>
+		</attenuation>
+		<range-m>30</range-m>
+		<dim-factor>
+			<property alias="/params/beacon" />
+		</dim-factor>
+	</light>
+	<model>
+		<name>beacon-als</name>
+		<path>Aircraft/c150/Models/Effects/exterior/lights/beacon.xml</path>
+		<offsets>
+			<x-m>5.545</x-m>
+			<y-m>0.0</y-m>
+			<z-m>1.28262</z-m>
+		</offsets>
+	</model>
+	<animation>
+		<type>translate</type>
+		<object-name>BeaconFlasher</object-name>
+		<nopreview/>
+		<offset-m>6.75</offset-m>
+		<axis>
+			<x>6.68361</x>
+			<y>0.0</y>
+			<z>1.27045</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>billboard</type>
+		<object-name>BeaconFlasher</object-name>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>BeaconFlasher</object-name>
+		<condition>
+			<property alias="/params/beacon" />
+		</condition>
+	</animation>
+	<!--	Landing Light	-->
+	<light>
+		<name>landinglight</name>
+		<type>spot</type>
+		<position>
+			<x-m>-0.898</x-m>
+			<y-m> 0.0  </y-m>
+			<z-m>-0.157</z-m>
+		</position>
+		<direction>
+			<x>-1.0</x>
+			<y>0</y>
+			<z>-0.013</z>
+		</direction>
+		<ambient>
+			<r>0.9</r>
+			<g>0.9</g>
+			<b>0.9</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>0.9</r>
+			<g>0.9</g>
+			<b>0.9</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>0.9</r>
+			<g>0.9</g>
+			<b>0.9</b>
+			<a>1</a>
+		</specular>
+		<attenuation>
+			<c>1.0</c>
+			<l>0.0001</l>
+			<q>0.0005</q>
+		</attenuation>
+		<spot-exponent>25</spot-exponent>
+		<spot-cutoff>40</spot-cutoff>
+		<range-m>100</range-m>
+		<dim-factor>
+			<property alias="/params/landing-light" />
+		</dim-factor>
+	</light>
+	<model>
+		<name>landinglight-als</name>
+		<path>Aircraft/c150/Models/Effects/exterior/lights/landing-light.xml</path>
+		<offsets>
+			<x-m>-0.898</x-m>
+			<y-m> 0.0  </y-m>
+			<z-m>-0.157</z-m>
+		</offsets>
+	</model>
+	<animation>
+		<type>select</type>
+		<condition>
+			<property>/sim/rendering/shaders/skydome</property>
+		</condition>
+		<object-name>red-navlight-als</object-name>
+		<object-name>green-navlight-als</object-name>
+		<object-name>tail-navlight-als</object-name>
+		<object-name>left-strobe-als</object-name>
+		<object-name>right-strobe-als</object-name>
+		<object-name>beacon-als</object-name>
+		<object-name>landinglight-als</object-name>
+	</animation>
+	<animation>
+		<type>select</type>
+		<condition>
+			<not>
+				<property>/sim/rendering/shaders/skydome</property>
+			</not>
+		</condition>
+		<object-name>LeftNavLightOn</object-name>
+		<object-name>RightNavLightOn</object-name>
+		<object-name>RearNavLightOn</object-name>
+		<object-name>BeaconFlasher</object-name>
+	</animation>
+	<animation>
+		<type>noshadow</type>
+		<object-name>red-navlight-als</object-name>
+		<object-name>green-navlight-als</object-name>
+		<object-name>tail-navlight-als</object-name>
+		<object-name>left-strobe-als</object-name>
+		<object-name>right-strobe-als</object-name>
+		<object-name>beacon-als</object-name>
+		<object-name>landinglight-als</object-name>
+	</animation>
+</PropertyList>

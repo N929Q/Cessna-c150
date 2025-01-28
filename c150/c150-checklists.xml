@@ -1,0 +1,1886 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<group>
+		<name>Standard</name>
+		<checklist n="0">
+			<title>Exterior Check</title>
+			<page>
+				<item>
+					<name>Interior</name>
+				</item>
+				<item>
+					<name>Ignition switch</name>
+					<value>OFF</value>
+					<marker>
+						<x-m> 0.48</x-m>
+						<y-m>-0.37</y-m>
+						<z-m> 0.0 </z-m>
+						<scale>2.0</scale>
+					</marker>
+					<condition>
+						<equals>
+							<property>/controls/engines/engine/c150-magnetos</property>
+							<value>0</value>
+						</equals>
+					</condition>
+					<binding>
+						<command>property-assign</command>
+						<property>/controls/engines/engine/c150-magnetos</property>
+						<value>0</value>
+					</binding>
+				</item>
+				<item>
+					<name>Master Switch</name>
+					<value>ON</value>
+					<marker>
+						<x-m> 0.48</x-m>
+						<y-m>-0.39</y-m>
+						<z-m>-0.05</z-m>
+						<scale>2.0</scale>
+					</marker>
+					<condition>
+						<and>
+							<property>/controls/engines/engine[0]/master-bat</property>
+							<property>/controls/engines/engine[0]/master-alt</property>
+						</and>
+					</condition>
+					<binding>
+						<command>property-assign</command>
+						<property>/controls/engines/engine[0]/master-bat</property>
+						<value>1</value>
+					</binding>
+					<binding>
+						<command>property-assign</command>
+						<property>/controls/engines/engine[0]/master-alt</property>
+						<value>1</value>
+					</binding>
+				</item>
+				<item>
+					<name>Fuel Quantity</name>
+					<value>Check</value>
+				</item>
+				<item>
+					<name>Master Switch</name>
+					<value>OFF</value>
+					<marker>
+						<x-m> 0.5 </x-m>
+						<y-m>-0.39</y-m>
+						<z-m>-0.05</z-m>
+						<scale>2.0</scale>
+					</marker>
+					<condition>
+						<and>
+							<not>
+								<property>/controls/engines/engine[0]/master-bat</property>
+								<property>/controls/engines/engine[0]/master-alt</property>
+							</not>
+						</and>
+					</condition>
+					<binding>
+						<command>property-assign</command>
+						<property>/controls/engines/engine[0]/master-bat</property>
+						<value>0</value>
+					</binding>
+					<binding>
+						<command>property-assign</command>
+						<property>/controls/engines/engine[0]/master-alt</property>
+						<value>0</value>
+					</binding>
+				</item>
+				<item>
+					<name>Fuel Shutoff Valve</name>
+					<value>ON</value>
+					<marker>
+						<x-m> 0.75</x-m>
+						<y-m> 0.0 </y-m>
+						<z-m>-0.33</z-m>
+						<scale>4.0</scale>
+					</marker>
+					<condition>
+						<equals>
+							<property>/consumables/fuel/tank/selected</property>
+							<value>1</value>
+						</equals>
+					</condition>
+					<binding>
+						<command>property-assign</command>
+						<property>/consumables/fuel/tank/selected</property>
+						<value>1</value>
+					</binding>
+				</item>
+			</page>
+			<page>
+				<item>
+					<name>Tail</name>
+				</item>
+				<item>
+					<name>Rudder/elevator and hinges</name>
+					<value>Check</value>
+				</item>
+			</page>
+			<page>
+				<item>
+					<name>Right wing</name>
+				</item>
+				<item>
+					<name>Aileron and hinges</name>
+					<value>Check</value>
+				</item>
+			</page>
+			<page>
+				<item>
+					<name>Right wing (front)</name>
+				</item>
+				<item>
+					<name>Fuel</name>
+					<value>Check (light blue)</value>
+				</item>
+				<item>
+					<name>Check fuel filler cap</name>
+					<value>Secured</value>
+				</item>
+				<item>
+					<name>Right MLG</name>
+					<value>Check pressure</value>
+				</item>
+			</page>
+			<page>
+				<item>
+					<name>Engine/nose</name>
+				</item>
+				<item>
+					<name>Oil level</name>
+					<value>Check</value>
+					<value>minimum 4 quarts (3.8l)</value>
+					<value>6 quarts (5.7l) for longer flights</value>
+					<condition>
+						<more-than-equals>
+							<property>/engines/engine[0]/oil-level</property>
+							<value>4.0</value>
+						</more-than-equals>
+					</condition>
+					<binding>
+						<command>dialog-show</command>
+						<dialog-name>c150-oil</dialog-name>
+					</binding>
+				</item>
+				<item>
+					<name>Fuel Strainer</name>
+					<value>Pull for approx. 4 seconds</value>
+					<value>Check leaked fuel for water contamination</value>
+				</item>
+				<item>
+					<name>Propeller and cowling</name>
+					<value>Check condition</value>
+				</item>
+				<item>
+					<name>Landing Light</name>
+					<value>Check condition and cleanliness</value>
+				</item>
+				<item>
+					<name>Carburetor inlets</name>
+					<value>Check cleanliness</value>
+				</item>
+				<item>
+					<name>Front Landing Gear</name>
+					<value>Check compression and pressure</value>
+					<binding>
+						<command>nasal</command>
+						<script>
+							setprop("/controls/preflight/pull-nose-down", 1);
+							settimer( func { setprop("controls/preflight/pull-nose-down", 0); }, 1.0 );
+						</script>
+					</binding>
+				</item>
+				<item>
+					<name>Static Pressure Inlet</name>
+					<value>Check cleanliness</value>
+				</item>
+			</page>
+			<page>
+				<item>
+					<name>Left Wing (front)</name>
+				</item>
+				<item>
+					<name>Fuel</name>
+					<value>Check (light blue)</value>
+				</item>
+				<item>
+					<name>Check fuel filler cap</name>
+					<value>Secured</value>
+				</item>
+				<item>
+					<name>Pitot</name>
+					<value>Remove cover, check cleanliness</value>
+				</item>
+				<item>
+					<name>Stall warning</name>
+					<value>Check cleanliness</value>
+				</item>
+				<item>
+					<name>Fuel vent</name>
+					<value>Check cleanliness</value>
+				</item>
+			</page>
+			<page>
+				<item>
+					<name>Left wing</name>
+				</item>
+				<item>
+					<name>Aileron and hinges</name>
+					<value>Check</value>
+				</item>
+			</page>
+			
+		</checklist>
+		
+		<checklist n="1">
+			<title>Before starting the engine</title>
+			<item>
+				<name>Seats and seat belts</name>
+				<value>ADJUST and LOCK</value>
+			</item>
+			<item>
+				<name>Brakes</name>
+				<value>TEST and SET (shift-B)</value>
+				<marker>
+					<x-m> 0.48</x-m>
+					<y-m>-0.447</y-m>
+					<z-m>0.002</z-m>
+					<scale>2.0</scale>
+				</marker>
+				<condition>
+					<equals>
+						<property>/controls/gear/brake-parking</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/gear/brake-parking</property>
+					<value>1</value>
+				</binding>
+			</item>
+			<item>
+				<name>Master Switch</name>
+				<value>OFF</value>
+				<marker>
+					<x-m> 0.48</x-m>
+					<y-m>-0.386565</y-m>
+					<z-m>-0.0535261</z-m>
+					<scale>2.0</scale>
+				</marker>
+				<condition>
+					<and><not>
+							<property>/controls/engines/engine[0]/master-bat</property>
+							<property>/controls/engines/engine[0]/master-alt</property></not>
+					</and>
+				</condition>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/engines/engine[0]/master-bat</property>
+					<value>0</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/engines/engine[0]/master-alt</property>
+					<value>0</value>
+				</binding>
+			</item>
+			<item>
+				<name>Fuel Shutoff Valve</name>
+				<value>ON</value>
+				<condition>
+					<equals>
+						<property>/consumables/fuel/tank/selected</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<binding>
+					<command>property-assign</command>
+					<property>/consumables/fuel/tank/selected</property>
+					<value>1</value>
+				</binding>
+			</item>
+		</checklist>
+		
+		<checklist n="2">
+			<title>Starting the engine</title>
+			<item>
+				<name>Carburetor Heat</name>
+				<value>COLD</value>
+				<marker>
+					<x-m>0.545</x-m>
+					<y-m>-0.058</y-m>
+					<z-m>0.003</z-m>
+					<scale>3.0</scale>
+				</marker>
+				<condition>
+					<equals>
+						<property>/controls/anti-ice/engine[0]/carb-heat</property>
+						<value>0</value>
+					</equals>
+				</condition>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/anti-ice/engine[0]/carb-heat</property>
+					<value>0</value>
+				</binding>
+			</item>
+			<item>
+				<name>Mixture</name>
+				<value>RICH</value>
+				<marker>
+					<x-m>0.620</x-m>
+					<y-m>0.079</y-m>
+					<z-m>-0.003</z-m>
+					<scale>3.0</scale>
+				</marker>
+				<condition>
+					<greater-than>
+						<property>/controls/engines/engine[0]/mixture</property>
+						<value>0.9</value>
+					</greater-than>
+				</condition>
+				<binding>
+					<command>property-interpolate</command>
+					<property>/controls/engines/engine[0]/mixture</property>
+					<value>1.0</value>
+					<rate>0.5</rate>
+				</binding>
+			</item>
+			
+			<item>
+				<name>Primer</name>
+				<value>As Required - 1-6 strokes</value>
+				<marker>
+					<x-m>0.535</x-m>
+					<y-m>-0.437</y-m>
+					<z-m>-0.047</z-m>
+					<scale>2.0</scale>
+				</marker>
+				<condition>
+					<greater-than>
+						<property>/controls/engines/engine[0]/primer</property>
+						<value>2</value>
+					</greater-than>
+				</condition>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/engines/engine[0]/primer</property>
+					<value>3</value>
+				</binding>
+			</item>
+			
+			<item>
+				<name>Throttle</name>
+				<value>OPEN 1/4 INCH (0.5CM)</value>
+				<marker>
+					<x-m>0.56</x-m>
+					<y-m>0.0</y-m>
+					<z-m>-0.003</z-m>
+					<scale>3.0</scale>
+				</marker>
+				<condition>
+					<and>
+						<greater-than>
+							<property>controls/engines/engine[0]/throttle</property>
+							<value>0.1</value>
+						</greater-than>
+						<less-than>
+							<property>controls/engines/engine[0]/throttle</property>
+							<value>0.4</value>
+						</less-than>
+					</and>
+				</condition>
+				<binding>
+					<command>property-interpolate</command>
+					<property>controls/engines/engine[0]/throttle</property>
+					<value>0.25</value>
+					<rate>0.2</rate>
+				</binding>
+			</item>
+			<item>
+				<name>Master Switch</name>
+				<value>ON</value>
+				<marker>
+					<x-m> 0.48</x-m>
+					<y-m>-0.386565</y-m>
+					<z-m>-0.0535261</z-m>
+					<scale>2.0</scale>
+				</marker>
+				<condition>
+					<and>
+						<property>/controls/engines/engine[0]/master-bat</property>
+						<property>/controls/engines/engine[0]/master-alt</property>
+					</and>
+				</condition>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/engines/engine[0]/master-bat</property>
+					<value>1</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/engines/engine[0]/master-alt</property>
+					<value>1</value>
+				</binding>
+			</item>
+			<item>
+				<name>Propeller Area</name>
+				<value>CLEAR</value>
+			</item>
+			<item>
+				<name>Ignition switch</name>
+				<value>BOTH</value>
+				<condition>
+					<equals>
+						<property>/controls/engines/engine[0]/c150-magnetos</property>
+						<value>3</value>
+					</equals>
+				</condition>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/engines/engine[0]/c150-magnetos</property>
+					<value>3</value>
+				</binding>
+			</item>
+			<item>
+				<name>Starter - On</name>
+				<value>ON</value>
+				<value>(press s and hold until the engine starts)</value>
+				<marker>
+					<x-m> 0.48</x-m>
+					<y-m>-0.371</y-m>
+					<z-m>0.006</z-m>
+					<scale>2.0</scale>
+				</marker>
+				<condition>
+					<equals>
+						<property>/controls/engines/engine[0]/c150-magnetos</property>
+						<value>4</value>
+					</equals>
+				</condition>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/engines/engine[0]/c150-magnetos</property>
+					<value>4</value>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+						var starter_off = func () { setprop("/controls/engines/engine[0]/c150-magnetos", 3 ); }
+						settimer( starter_off, 3 );
+					</script>
+				</binding>
+			</item>
+			<item>
+				<name>Oil Pressure</name>
+				<value>CHECK</value>
+			</item>
+			<item>
+				<name>Beacon switch</name>
+				<value>ON</value>
+				<condition>
+					<property>/controls/lighting/beacon</property>
+				</condition>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/lighting/beacon</property>
+					<value>1</value>
+				</binding>
+			</item>
+		</checklist>
+		
+		<checklist n="3">
+			<title>Before take-off</title>
+			<page>
+				<item>
+					<name>Cabin Doors</name>
+					<value>CLOSED and LOCKED</value>
+					<condition>
+						<and>
+							<equals>
+								<property>sim/model/c150/doors/door[0]/position-norm</property>
+								<value>0</value>
+							</equals>
+							<equals>
+								<property>/sim/model/c150/doors/door[1]/position-norm</property>
+								<value>0</value>
+							</equals>
+						</and>
+					</condition>
+					<binding>
+						<command>nasal</command>
+						<script>c150.leftDoor.close();</script>
+					</binding>
+					<binding>
+						<command>nasal</command>
+						<script>c150.rightDoor.close();</script>
+					</binding>
+				</item>
+				<item>
+					<name>Flight Controls</name>
+					<value>FREE and CORRECT</value>
+				</item>
+				<item>
+					<name>Elevator Trim</name>
+					<value>SET for takeoff</value>
+					<marker>
+						<x-m>0.52</x-m>
+						<y-m>-0.057</y-m>
+						<z-m>-0.093</z-m>
+						<scale>3.0</scale>
+					</marker>
+					<condition>
+						<and>
+							<greater-than>
+								<property>/controls/flight/elevator-trim</property>
+								<value>-0.12</value>
+							</greater-than>
+							<less-than>
+								<property>/controls/flight/elevator-trim</property>
+								<value>0.12</value>
+							</less-than>
+						</and>
+					</condition>
+					<binding>
+						<command>property-interpolate</command>
+						<property>/controls/flight/elevator-trim</property>
+						<value>-0.0</value>
+						<rate>0.1</rate>
+					</binding>
+				</item>
+				<item>
+					<name>Throttle Setting</name>
+					<value>1700 RPM</value>
+					<marker>
+						<x-m>0.56</x-m>
+						<y-m>0.0</y-m>
+						<z-m>-0.003</z-m>
+						<scale>3.0</scale>
+					</marker>
+					<condition>
+						<and>
+							<greater-than>
+								<property>/engines/engine[0]/rpm</property>
+								<value>1600</value>
+							</greater-than>
+							<less-than>
+								<property>/engines/engine[0]/rpm</property>
+								<value>1800</value>
+							</less-than>
+						</and>
+					</condition>
+					<binding>
+						<command>property-interpolate</command>
+						<property>controls/engines/engine[0]/throttle</property>
+						<value>0.69</value>
+						<time>1.0</time>
+					</binding>
+				</item>
+				<item>
+					<name>Suction Gauge</name>
+					<value>CHECK within the green arc</value>
+					<value>4.6 - 5.4 inHg</value>
+					<marker>
+						<x-m>0.48</x-m>
+						<y-m>0.44</y-m>
+						<z-m>0.208282</z-m>
+						<scale>2.0</scale>
+					</marker>
+					<condition>
+						<more-than-equals>
+							<property>/systems/vacuum/suction-inhg</property>
+							<value>4.6</value>
+						</more-than-equals>
+						<less-than-equals>
+							<property>/systems/vacuum/suction-inhg</property>
+							<value>5.4</value>
+						</less-than-equals>
+					</condition>
+				</item>
+			</page>
+			<page>
+				<item>
+					<name>Magnetos</name>
+					<value>CHECK RPM DROP</value>
+					<value>(150 rpm max, difference between magnetos 75 rpm max)</value>
+					<marker>
+						<x-m>0.48</x-m>
+						<y-m>0.254226</y-m>
+						<z-m>0.208282</z-m>
+						<scale>4.0</scale>
+					</marker>
+				</item>
+				<item>
+					<name>Carburetor Heat</name>
+					<value>CHECK for RPM drop</value>
+					<marker>
+						<x-m>0.48</x-m>
+						<y-m>0.254226</y-m>
+						<z-m>0.208282</z-m>
+						<scale>4.0</scale>
+					</marker>
+				</item>
+				<item>
+					<name>Flight Instruments and Radios</name>
+					<value>SET</value>
+				</item>
+				<item>
+					<name>Wing Leveler (OPTIONAL)</name>
+					<value>OFF</value>
+				</item>
+			</page>
+		</checklist>
+		
+		<checklist n="4">
+			<title>Normal take-off</title>
+			<item>
+				<name>Wing Flaps</name>
+				<value>SET for takeoff (0)</value>
+				<marker>
+					<x-m>1.69</x-m>
+					<y-m>0.140</y-m>
+					<z-m>-0.009</z-m>
+					<scale>2.0</scale>
+				</marker>
+				<condition>
+					<equals>
+						<property>/surface-positions/flap-pos-norm</property>
+						<value>0.0</value>
+					</equals>
+				</condition>
+				<binding>
+					<command>nasal</command>
+					<script>
+						controls.flapsDown( -1 );
+						var ls = setlistener("/surface-positions/flap-pos-norm", func( i ){ 
+								if ( i.getDoubleValue() == 0.0 ){ 
+									controls.flapsDown( 0 );
+									removelistener( ls );
+								}
+							});
+					</script>
+				</binding>
+			</item>
+			<item>
+				<name>Carburetor Heat</name>
+				<value>COLD</value>
+				<marker>
+					<x-m>0.48</x-m>
+					<y-m>0.254226</y-m>
+					<z-m>0.208282</z-m>
+					<scale>4.0</scale>
+				</marker>
+				<condition>
+					<equals>
+						<property>/controls/anti-ice/engine[0]/carb-heat</property>
+						<value>0</value>
+					</equals>
+				</condition>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/anti-ice/engine[0]/carb-heat</property>
+					<value>0</value>
+				</binding>
+			</item>
+			<item>
+				<name>Throttle</name>
+				<marker>
+					<x-m>0.56</x-m>
+					<y-m>0.0</y-m>
+					<z-m>-0.003</z-m>
+					<scale>3.0</scale>
+				</marker>
+				<value>Full "Open"</value>
+				<condition>
+					<greater-than>
+						<property>/engines/engine[0]/rpm</property>
+						<value>2200</value>
+					</greater-than>
+				</condition>
+				<binding>
+					<command>property-interpolate</command>
+					<property>controls/engines/engine[0]/throttle</property>
+					<value>1.0</value>
+					<time>1.0</time>
+				</binding>
+			</item>
+			<item>
+				<name>Elevator Control</name>
+				<value>Lift nose wheel at 55 mph</value>
+			</item>
+			<item>
+				<name>Climb Speed</name>
+				<value>70 to 80 MPH until all obstacles are cleared</value>
+			</item>
+		</checklist>
+		<checklist n="5">
+			<title>Short take-off</title>
+			<item>
+				<name>Wing Flaps</name>
+				<value>SET for takeoff (0)</value>
+				<marker>
+					<x-m>0.55</x-m>
+					<y-m>0.140</y-m>
+					<z-m>-0.009</z-m>
+					<scale>2.0</scale>
+				</marker>
+				<condition>
+					<equals>
+						<property>/surface-positions/flap-pos-norm</property>
+						<value>0.0</value>
+					</equals>
+				</condition>
+				<binding>
+					<command>nasal</command>
+					<script>
+						controls.flapsDown( -1 );
+						var ls = setlistener("/surface-positions/flap-pos-norm", func( i ){ 
+								if ( i.getDoubleValue() == 0.0 ){ 
+									controls.flapsDown( 0 );
+									removelistener( ls );
+								}
+							});
+					</script>
+				</binding>
+			</item>
+			<item>
+				<name>Carburetor Heat</name>
+				<value>COLD</value>
+				<marker>
+					<x-m>0.48</x-m>
+					<y-m>0.254226</y-m>
+					<z-m>0.208282</z-m>
+					<scale>4.0</scale>
+				</marker>
+				<condition>
+					<equals>
+						<property>/controls/anti-ice/engine[0]/carb-heat</property>
+						<value>0</value>
+					</equals>
+				</condition>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/anti-ice/engine[0]/carb-heat</property>
+					<value>0</value>
+				</binding>
+			</item>
+			<item>
+				<name>Brakes</name>
+				<value>Hold</value>
+				<condition><and>
+						<not-equals>
+							<property>/controls/gear/brake-left</property>
+							<value>0</value>
+						</not-equals>
+						<not-equals>
+							<property>/controls/gear/brake-right</property>
+							<value>0</value>
+						</not-equals>
+					</and>
+				</condition>
+			</item>
+			<item>
+				<name>Throttle</name>
+				<marker>
+					<x-m>0.56</x-m>
+					<y-m>0.0</y-m>
+					<z-m>-0.003</z-m>
+					<scale>3.0</scale>
+				</marker>
+				<value>Full "Open"</value>
+				<condition>
+					<greater-than>
+						<property>/engines/engine[0]/rpm</property>
+						<value>2200</value>
+					</greater-than>
+				</condition>
+				<binding>
+					<command>property-interpolate</command>
+					<property>controls/engines/engine[0]/throttle</property>
+					<value>1.0</value>
+					<time>1.0</time>
+				</binding>
+			</item>
+			<item>
+				<name>Brakes</name>
+				<value>Release</value>
+				<condition><and>
+						<equals>
+							<property>/controls/gear/brake-left</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>/controls/gear/brake-right</property>
+							<value>0</value>
+						</equals>
+					</and>
+				</condition>
+			</item>
+			<item>
+				<name>Elevator Control</name>
+				<value>Hold aircraft slight back</value>
+			</item>
+			<item>
+				<name>Climb Speed</name>
+				<value>70 to clear obstacles</value>
+			</item>
+		</checklist>
+		
+		<checklist n="6">
+			<title>Normal climb</title>
+			<item>
+				<name>Air Speed</name>
+				<value>75 to 80 MPH</value>
+				<condition>
+					<less-than-equals>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-mph</property>
+						<value>80</value>
+					</less-than-equals>
+					<more-than-equals>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-mph</property>
+						<value>75</value>
+					</more-than-equals>
+				</condition>
+			</item>
+			<item>
+				<name>Throttle</name>
+				<value>Full "Open"</value>
+				<marker>
+					<x-m>0.56</x-m>
+					<y-m>0.0</y-m>
+					<z-m>-0.003</z-m>
+					<scale>3.0</scale>
+				</marker>
+				<condition>
+					<greater-than>
+						<property>/engines/engine[0]/rpm</property>
+						<value>2200</value>
+					</greater-than>
+				</condition>
+				<binding>
+					<command>property-interpolate</command>
+					<property>controls/engines/engine[0]/throttle</property>
+					<value>1.0</value>
+					<time>1.0</time>
+				</binding>
+			</item>
+			<item>
+				<name>Mixture</name>
+				<value>Rich (unless engine is rough)</value>
+				<marker>
+					<x-m>0.48</x-m>
+					<y-m>0.254226</y-m>
+					<z-m>0.208282</z-m>
+					<scale>4.0</scale>
+				</marker>
+			</item>
+		</checklist>
+		
+		<checklist n="7">
+			<title>Cruising</title>
+			<item>
+				<name>Power</name>
+				<value>2000 to 2750 RPM</value>
+				<marker>
+					<x-m>0.56</x-m>
+					<y-m>0.0</y-m>
+					<z-m>-0.003</z-m>
+					<scale>3.0</scale>
+				</marker>
+				<condition>
+					<and>
+						<greater-than>
+							<property>/engines/engine[0]/rpm</property>
+							<value>2000</value>
+						</greater-than>
+						<less-than>
+							<property>/engines/engine[0]/rpm</property>
+							<value>2750</value>
+						</less-than>
+					</and>
+				</condition>
+				<binding>
+					<command>property-interpolate</command>
+					<property>controls/engines/engine[0]/throttle</property>
+					<value>.75</value>
+					<time>1.0</time>
+				</binding>
+			</item>
+			<item>
+				<name>Elevator trim</name>
+				<value>Adjust</value>
+			</item>
+			<item>
+				<name>Mixture</name>
+				<value>Lean to maximum RPM</value>
+				<marker>
+					<x-m>0.48</x-m>
+					<y-m>0.254226</y-m>
+					<z-m>0.208282</z-m>
+					<scale>4.0</scale>
+				</marker>
+			</item>
+		</checklist>
+		
+		<checklist n="8">
+			<title>Before landing</title>
+			<item>
+				<name>Mixture</name>
+				<value>Rich</value>
+				<marker>
+					<x-m>0.48</x-m>
+					<y-m>0.254226</y-m>
+					<z-m>0.208282</z-m>
+					<scale>4.0</scale>
+				</marker>
+				<condition>
+					<greater-than>
+						<property>/controls/engines/engine[0]/mixture</property>
+						<value>0.9</value>
+					</greater-than>
+				</condition>
+				<binding>
+					<command>property-interpolate</command>
+					<property>/controls/engines/engine[0]/mixture</property>
+					<value>1.0</value>
+					<rate>0.5</rate>
+				</binding>
+			</item>
+			<item>
+				<name>Carburetor Heat</name>
+				<value>Apply full heat before closing throttle</value>
+				<condition>
+					<equals>
+						<property>/controls/anti-ice/engine[0]/carb-heat</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/anti-ice/engine[0]/carb-heat</property>
+					<value>1</value>
+				</binding>
+			</item>
+			<item>
+				<name>Airspeed</name>
+				<value>65 to 75 MPH</value>
+				<condition>
+					<less-than-equals>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-mph</property>
+						<value>75</value>
+					</less-than-equals>
+					<more-than-equals>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-mph</property>
+						<value>65</value>
+					</more-than-equals>
+				</condition>
+			</item>
+			<item>
+				<name>Wing Flaps</name>
+				<value>As desired below 100 MPH</value>
+			</item>
+			<item>
+				<name>Airspeed</name>
+				<value>60 to 70 MPH with flaps extended</value>
+				<condition>
+					<more-than>
+						<property>/surface-positions/flap-pos-norm</property>
+						<value>0.0</value>
+					</more-than>
+					<less-than-equals>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-mph</property>
+						<value>70</value>
+					</less-than-equals>
+					<more-than-equals>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-mph</property>
+						<value>60</value>
+					</more-than-equals>
+				</condition>
+			</item>
+		</checklist>
+		
+		<checklist n="9">
+			<title>Normal landing</title>
+			<item>
+				<name>Touch down</name>
+				<value>Main wheels first</value>
+			</item>
+			<item>
+				<name>Landing Roll</name>
+				<value>Lower nose wheel gently</value>
+			</item>
+			<item>
+				<name>Braking</name>
+				<value>Minimum required</value>
+			</item>
+		</checklist>
+		
+		<checklist n="10">
+			<title>After landing</title>
+			<item>
+				<name>Wing Flaps</name>
+				<value>UP</value>
+				<condition>
+					<equals>
+						<property>/surface-positions/flap-pos-norm</property>
+						<value>0.0</value>
+					</equals>
+				</condition>
+				<binding>
+					<command>nasal</command>
+					<script>
+						controls.flapsDown( -1 );
+						var ls = setlistener("/surface-positions/flap-pos-norm", func( i ){ 
+								if ( i.getDoubleValue() == 0.0 ){ 
+									controls.flapsDown( 0 );
+									removelistener( ls );
+								}
+							});
+					</script>
+				</binding>
+			</item>
+			<item>
+				<name>Carburetor Heat</name>
+				<value>COLD</value>
+				<condition>
+					<equals>
+						<property>/controls/anti-ice/engine[0]/carb-heat</property>
+						<value>0</value>
+					</equals>
+				</condition>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/anti-ice/engine[0]/carb-heat</property>
+					<value>0</value>
+				</binding>
+			</item>
+		</checklist>
+		
+		<checklist n="11">
+			<title>Secure aircraft</title>
+			<item>
+				<name>Mixture</name>
+				<value>Idle Cut-off</value>
+				<marker>
+					<x-m>0.48</x-m>
+					<y-m>0.254226</y-m>
+					<z-m>0.208282</z-m>
+					<scale>4.0</scale>
+				</marker>
+				<condition>
+					<less-than>
+						<property>/controls/engines/engine[0]/mixture</property>
+						<value>0.1</value>
+					</less-than>
+				</condition>
+				<binding>
+					<command>property-interpolate</command>
+					<property>/controls/engines/engine[0]/mixture</property>
+					<value>0.0</value>
+					<rate>0.5</rate>
+				</binding>
+			</item>
+			<item>
+				<name>All Switches</name>
+				<value>OFF</value>
+				<condition>
+					<not>
+						<or>
+							<property>/controls/engines/engine[0]/master-bat</property>
+							<property>/controls/engines/engine[0]/master-alt</property>
+							<property>/controls/anti-ice/engine[0]/carb-heat</property>
+							<property>/controls/lighting/landing-light</property>
+							<property>/controls/lighting/nav-lights</property>
+							<property>/controls/lighting/strobe</property>
+							<property>/controls/lighting/beacon</property>
+						</or>
+					</not>
+				</condition>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/engines/engine[0]/master-bat</property>
+					<value>false</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/engines/engine[0]/master-alt</property>
+					<value>false</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/anti-ice/engine[0]/carb-heat</property>
+					<value>false</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/lighting/landing-light</property>
+					<value>false</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/lighting/nav-lights</property>
+					<value>false</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/lighting/strobe</property>
+					<value>false</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/lighting/beacon</property>
+					<value>false</value>
+				</binding>
+			</item>
+			<item>
+				<name>Parking Brake</name>
+				<value>SET (shift-B)</value>
+				<marker>
+					<x-m>0.53</x-m>
+					<y-m>-0.447</y-m>
+					<z-m>0.002</z-m>
+					<scale>2.0</scale>
+				</marker>
+				<condition>
+					<equals>
+						<property>/controls/gear/brake-parking</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/gear/brake-parking</property>
+					<value>1</value>
+				</binding>
+			</item>
+			<item>
+				<name>Control Lock</name>
+				<value>Installed</value>
+			</item>
+		</checklist>
+	</group>
+	<group>
+		<name>EMERGENCY - Engine Malfunction</name>
+		<checklist>
+			<title>During Takeoff (Sufficient Runway Ahead)</title>
+			<item>
+				<name>Throttle</name>
+				<value>IDLE</value>
+			</item>
+			<item>
+				<name>Brakes</name>
+				<value>ACTUATE</value>
+			</item>
+			<item>
+				<name>Flaps</name>
+				<value>RETRACT (if extended)</value>
+			</item>
+			<item>
+				<name>Mixture</name>
+				<value>CUT-OFF</value>
+			</item>
+			<item>
+				<name>Ignition Switch</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>Master Switch</name>
+				<value>OFF</value>
+			</item>
+		</checklist>
+		<checklist>
+			<title>After Takeoff</title>
+			<item>
+				<name>Airspeed</name>
+				<value>70mph</value>
+			</item>
+			<item>
+				<name>Mixture</name>
+				<value>CUT-OFF</value>
+			</item>
+			<item>
+				<name>Fuel Shutoff Valve</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>Ignition Switch</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>Master Switch</name>
+				<value>Leave ON</value>
+			</item>
+		</checklist>
+		<checklist>
+			<title>During Flight</title>
+			<item>
+				<name>Airspeed</name>
+				<value>70mph</value>
+			</item>
+			<item>
+				<name>Fuel Shutoff Valve</name>
+				<value>Verify ON</value>
+			</item>
+			<item>
+				<name>Mixture</name>
+				<value>RICH</value>
+			</item>
+			<item>
+				<name>Throttle</name>
+				<value>OPEN 2.5cm</value>
+			</item>
+			<item>
+				<name>Ignition Switch</name>
+				<value>BOTH</value>
+			</item>
+			<item>
+				<name>IF PROPELLER DOESNT TURN:</name>
+				<value>ACTUATE STARTER</value>
+			</item>
+			<item>
+				<name>IF ENGINE START NOT SUCCESSFULL:</name>
+				<value>CHOOSE LANDING SITE</value>
+				<value>SHUT OFF ENGINE AS FOLLOWING:</value>
+			</item>
+			<item>
+				<name>Mixture</name>
+				<value>CUT-OFF</value>
+			</item>
+			<item>
+				<name>Throttle</name>
+				<value>CLOSED</value>
+			</item>
+			<item>
+				<name>Ignition Switch</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>Fuel Shutoff Valve</name>
+				<value>CLOSED</value>
+			</item>
+		</checklist>	
+	</group>
+	
+	<group>
+		<name>EMERGENCY - Fire</name>
+		<checklist>
+			<title>Engine Fire During Engine Start</title>
+			<item>
+				<name>Starter</name>
+				<value>Continue Operating</value>
+			</item>
+			<item>
+				<name>IF START SUCCESSFULL:</name>
+				<value>Run Engine at 1700RPM for a few minutes</value>
+				<value>Afterwards Shut Engine Off to inspect damage</value>
+			</item>
+			<item>
+				<name>IF START NOT SUCCESSFULL:</name>
+			</item>
+			<item>
+				<name>Starter</name>
+				<value>Continue Cranking for 2-3 min.</value>
+			</item>
+			<item>
+				<name>Throttle</name>
+				<value>FULL OPEN</value>
+			</item>
+			<item>
+				<name>Ground Crew</name>
+				<value>Obtain Fire Extinguishers</value>
+			</item>
+			<item>
+				<name>WHEN READY TO EXTINGUISH FIRE:</name>
+			</item>
+			<item>
+				<name>Starter</name>
+				<value>RELEASE</value>
+			</item>
+			<item>
+				<name>Master Switch</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>Ignition Switch</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>Fuel Shutoff Valve</name>
+				<value>CLOSED</value>
+			</item>
+			<item>
+				<name>Smother Flames</name>
+			</item>
+		</checklist>
+		<checklist>
+			<title>Engine Fire In Flight</title>
+			<item>
+				<name>Mixture</name>
+				<value>CUT-OFF</value>
+			</item>
+			<item>
+				<name>Fuel Shutoff Valve</name>
+				<value>CLOSED</value>
+			</item>
+			<item>
+				<name>Master Switch</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>Airspeed</name>
+				<value>100mph</value>
+			</item>
+			<item>
+				<name>Cabin heat</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>CHOOSE LANDING SITE</name>
+			</item>
+			<item>
+				<name>IF FIRE IS NOT EXTINGUISHED</name>
+				<value>INCREASE AIRSPEED</value>
+			</item>
+			<item>
+				<name>EXECUTE FORCED LANDING</name>
+			</item>
+			<item>
+				<name>DO NOT ATTEMPT TO RESTART ENGINE</name>
+			</item>
+		</checklist>
+		<checklist>
+			<title>Electrical Fire In Flight</title>
+			<item>
+				<name>Initial Sign: ODOR OF BURNED INSULATION</name>
+			</item>
+			<item>
+				<name>Master Switch</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>Ventilation</name>
+				<value>CLOSE OFF as much as practicable</value>
+			</item>
+			<item>
+				<name>IF ELECTRICAL POWER IS INDISPENSABLE FOR FLIGHT</name>
+			</item>
+			<item>
+				<name>Try to identify the faulty circuit:</name>
+			</item>
+			<item>
+				<name>Master Switch</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>All Switches EXCEPT IGNITION SWITCH</name>
+				<value>OFF</value>
+				<condition>
+					<not>
+						<or>
+							<property>/controls/engines/engine[0]/master-bat</property>
+							<property>/controls/engines/engine[0]/master-alt</property>
+							<property>/controls/anti-ice/engine[0]/carb-heat</property>
+							<property>/controls/lighting/landing-light</property>
+							<property>/controls/lighting/nav-lights</property>
+							<property>/controls/lighting/strobe</property>
+							<property>/controls/lighting/beacon</property>
+						</or>
+					</not>
+				</condition>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/engines/engine[0]/master-bat</property>
+					<value>false</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/engines/engine[0]/master-alt</property>
+					<value>false</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/anti-ice/engine[0]/carb-heat</property>
+					<value>false</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/lighting/landing-light</property>
+					<value>false</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/lighting/nav-lights</property>
+					<value>false</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/lighting/strobe</property>
+					<value>false</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/lighting/beacon</property>
+					<value>false</value>
+				</binding>
+			</item>
+			<item>
+				<name>Fuses and Circuit Breakers</name>
+				<value>CHECK CONDITION</value>
+				<value>Identify faulty circuit</value>
+				<value>Leave faulty circuit deactivated</value>
+			</item>
+			<item>
+				<name>Master Switch</name>
+				<value>ON</value>
+			</item>
+			<item>
+				<name>Other Switches</name>
+				<value>Select ON successively</value>
+				<value>Wait a short time after each switch</value>
+				<value>until faulty circuit is localised</value>
+			</item>
+			<item>
+				<name>Ventilation</name>
+				<value>VERIFY fire is extinguished before opening</value>
+			</item>
+		</checklist>
+		<checklist>
+			<title>Cabin Fire</title>
+			<item>
+				<name>Master Switch</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>Cabin Heat</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>Ventilation</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>Fire Extinguisher</name>
+				<value>USE if available</value>
+			</item>
+			<item>
+				<name>IF FIRE CAN NOT BE EXTINGUISHED</name>
+				<value>LAND AS SOON AS POSSIBLE</value>
+			</item>
+			<item>
+				<name>After using Fire Exinguisher</name>
+				<value>Ventilate Cabin</value>
+			</item>
+		</checklist>
+		<checklist>
+			<title>Wing Fire</title>
+			<item>
+				<name>Master Switch</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>Ventilation</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>Side-Slip</name>
+				<value>to keep flames away from fuel tanks and cabin</value>
+			</item>
+			<item>
+				<name>LAND AS SOON AS POSSIBLE</name>
+			</item>
+			<item>
+				<name>Flaps</name>
+				<value>UP</value>
+			</item>
+		</checklist>
+	</group>
+	<group>
+		<name>EMERGENCY - Landing</name>
+		<checklist>
+			<title>Emergency Landing Without Engine Power</title>
+			<item>
+				<name>Mixture</name>
+				<value>CUT-OFF</value>
+			</item>
+			<item>
+				<name>Fuel Shutoff Valve</name>
+				<value>CLOSED</value>
+			</item>
+			<item>
+				<name>All Switches EXCEPT Master Switch</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>Approach Speed</name>
+				<value>70 MPH</value>
+			</item>
+			<item>
+				<name>Flaps</name>
+				<value>EXTEND as far as necessary</value>
+				<value>within glide range of landing site</value>
+			</item>
+			<item>
+				<name>Master Switch</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>Cabin Doors</name>
+				<value>UNLOCK</value>
+			</item>
+			<item>
+				<name>Touchdown</name>
+				<value>SLIGHTLY TAIL LOW</value>
+			</item>
+			<item>
+				<name>Brake</name>
+				<value>HEAVILY</value>
+			</item>
+		</checklist>
+		<checklist>
+			<title>Ditching</title>
+			<page>
+				<item>
+					<name>PREPARATION</name>
+				</item>
+				<item>
+					<name>Heavy Items</name>
+					<value>SECURE or DROP OFF</value>
+				</item>
+				<item>
+					<name>Pillows/Cushions/Jackets</name>
+					<value>COLLECT to PROTECT FACE</value>
+				</item>
+				<item>
+					<name>Mayday Call</name>
+					<value>ON EMERGENCY FREQUENCY 121.500 MHZ</value>
+					<value>REPORT POSITION</value>
+				</item>
+			</page>
+			<page>
+				<item>
+					<name>Approach</name>
+					<value>AGAINST THE WIND in case of HEAVY WIND or ROUGH SEA</value>
+					<value>PARALLEL TO SWELL in case of LIGHT WIND or HEAVY SWELL</value>
+				</item>
+				<item>
+					<name>Flaps</name>
+					<value>40 DEG</value>
+				</item>
+				<item>
+					<name>Airspeed</name>
+					<value>65 MPH</value>
+				</item>
+				<item>
+					<name>Throttle</name>
+					<value>SET TO OBTAIN 300 FPM sink rate</value>
+				</item>
+				<item>
+					<name>Cabin Doors</name>
+					<value>UNLOCK</value>
+				</item>
+				<item>
+					<name>SUSTAIN CONSISTENT SINK RATE</name>
+				</item>
+				<item>
+					<name>DO NOT FLARE</name>
+				</item>
+				<item>
+					<name>Hold Pillows/Cushions/Jackets in front of occupant's faces</name>
+				</item>
+				<item>
+					<name>EXPECT SECOND IMPACT</name>
+				</item>
+				<item>
+					<name>LEAVE AIRCRAFT</name>
+					<value>through cabin doors</value>
+					<value>if necessary, open windows to flood cabin</value>
+				</item>
+				<item>
+					<name>Lift Vests/Life Raft (if equipped)</name>
+					<value>INFLATE ONLY AFTER EVACUATION</value>
+				</item>
+			</page>
+		</checklist>
+		<checklist>
+			<title>Precautionary Landing With Engine Power</title>
+			<item>
+				<name>FLY OVER THE PICKED LANDING SITE IN LOW HEIGHT</name>
+			</item>
+			<item>
+				<name>Flaps</name>
+				<value>20 DEG</value>
+			</item>
+			<item>
+				<name>Airspeed</name>
+				<value>70 MPH</value>
+			</item>
+			<item>
+				<name>WHEN AT A SAFE HEIGHT AGAIN</name>
+			</item>
+			<item>
+				<name>Flaps</name>
+				<value>UP</value>
+			</item>
+			<item>
+				<name>DOWNWIND LEG</name>
+			</item>
+			<item>
+				<name>All Switches EXCEPT Master and Ignition Switch</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>APPROACH</name>
+			</item>
+			<item>
+				<name>Airspeed</name>
+				<value>65 MPH</value>
+			</item>
+			<item>
+				<name>Flaps</name>
+				<value>40 DEG</value>
+			</item>
+			<item>
+				<name>Cabin Doors</name>
+				<value>UNLOCK</value>
+			</item>
+			<item>
+				<name>Master Switch</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>Ignition Switch</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>Touchdown</name>
+				<value>SLIGHTLY TAIL LOW</value>
+			</item>
+		</checklist>
+		<checklist>
+			<title>Landing with a Flat Tire</title>
+			<item>
+				<name>EXPECT AIRCRAFT TO TURN TO THE SIDE OF THE FLAT TIRE</name>
+			</item>
+			<item>
+				<name>Flaps</name>
+				<value>AS USUAL</value>
+			</item>
+			<item>
+				<name>Touchdown Attitude</name>
+				<value>TAIL LOW</value>
+				<value>WING LOW on the side of the GOOD TIRE</value>
+			</item>
+			<item>
+				<name>KEEP FLAT TIRE FROM THE GROUND AS LONG AS POSSIBLE</name>
+			</item>
+			<item>
+				<name>Upon Flat Tire Touchdown</name>
+				<value>KEEP DIRECTION USING RUDDER AND BRAKE ON GOOD TIRE</value>
+			</item>
+		</checklist>
+		<checklist>
+			<title>Landing Without Elevator Control</title>
+			<item>
+				<name>Throttle and Elevator Trim</name>
+				<value>TRIM AIRCRAFT FOR 60 MPH AT 20 DEG FLAPS</value>
+			</item>
+			<item>
+				<name>Elevator Trim</name>
+				<value>DO NOT CHANGE AFTERWARDS</value>
+			</item>
+			<item>
+				<name>USE THROTTLE TO CONTROL GLIDE ANGLE</name>
+			</item>
+			<item>
+				<name>FLARE</name>
+			</item>
+			<item>
+				<name>Elevator Trim</name>
+				<value>FULL AFT</value>
+			</item>
+			<item>
+				<name>Throttle</name>
+				<value>INCREASE TO PITCH UP INTO NEUTRAL ATTITUDE</value>
+			</item>
+			<item>
+				<name>TOUCHDOWN</name>
+			</item>
+			<item>
+				<name>Throttle</name>
+				<value>IDLE</value>
+			</item>
+		</checklist>
+	</group>
+	<group>
+		<name>EMERGENCY - Disorientation in Clouds</name>
+		<checklist>
+			<title>Execute 180 Degree Turn In Clouds</title>
+			<item>
+				<name>Time</name>
+				<value>Note Minute</value>
+				<value>Observe Second Hand</value>
+				<value>WHEN Second Hand at nearest 30 sec.:</value>
+			</item>
+			<item>
+				<name>Turn</name>
+				<value>Initiate standard-rate left turn</value>
+				<value>for 60 sec</value>
+				<value>Then stop turn</value>
+			</item>
+			<item>
+				<name>Compass</name>
+				<value>CHECK READING FOF ACCURACY OF TURN</value>
+			</item>
+			<item>
+				<name>Heading Adjustments</name>
+				<value>Use Skid (Rudder) instead of roll to keep compass deviation minimal</value>
+			</item>
+			<item>
+				<name>Control Wheel</name>
+				<value>KEEP HANDS OFF</value>
+				<value>USE RUDDER TO MAINTAIN HEADING</value>
+			</item>
+		</checklist>
+		<checklist>
+			<title>Emergency Descent Through Clouds</title>
+			<item>
+				<name>IF POSSIBLE, OBTAIN RADIO CLEARANCE</name>
+			</item>
+			<item>
+				<name>Course</name>
+				<value>EAST or WEST to minimize compass deviation due to bank angle</value>
+			</item>
+			<item>
+				<name>Control Wheel</name>
+				<value>KEEP HANDS OFF</value>
+				<value>USE RUDDER TO MAINTAIN HEADING</value>
+			</item>
+			<item>
+				<name>Mixture</name>
+				<value>FULL RICH</value>
+			</item>
+			<item>
+				<name>Carburetor Heat</name>
+				<value>FULL ON</value>
+			</item>
+			<item>
+				<name>Throttle</name>
+				<value>REDUCE POWER to obtain 500-800 FPM DESCENT</value>
+			</item>
+			<item>
+				<name>Elevator Trim</name>
+				<value>ADJUST to maintain 80 MPH airspeed</value>
+			</item>
+		</checklist>
+		<checklist>
+			<title>Recovery from a Spiral Dive</title>
+			<item>
+				<name>Throttle</name>
+				<value>CLOSED</value>
+			</item>
+			<item>
+				<name>USE ELEVATOR AND RUDDER TO BRING TURN COORDINATOR SYMBOL TO HORIZONTAL LINE</name>
+			</item>
+			<item>
+				<name>Elevator</name>
+				<value>PULL CAUTIOUSLY</value>
+				<value>REDUCE AIRSPPED SLOWLY TO 70-80 MPH</value>
+			</item>
+			<item>
+				<name>Elevator Trim</name>
+				<value>ADJUST to maintain 80 MPH airspeed</value>
+			</item>
+			<item>
+				<name>Control Wheel</name>
+				<value>KEEP HANDS OFF</value>
+				<value>USE RUDDER TO MAINTAIN HEADING</value>
+			</item>
+			<item>
+				<name>Carburetor Heat</name>
+				<value>ON</value>
+			</item>
+			<item>
+				<name>Throttle</name>
+				<value>PERIODICALLY INCREASE ENGINE POWER</value>
+				<value>DO NOT DISTURB TRIMMED GLIDE</value>
+			</item>
+			<item>
+				<name>When leaving clouds</name>
+				<value>APPLY CRUISE POWER</value>
+				<value>RESUME FLIGHT</value>
+			</item>
+		</checklist>
+	</group>
+	<group>
+		<name>EMERGENCY - Other</name>
+		<checklist>
+			<title>Flight In Icing Conditions</title>
+			<item>
+				<name>Pitot Heat</name>
+				<value>ON (if installed)</value>
+			</item>
+			<item>
+				<name>TURN BACK OR CHANGE ALTITUDE</name>
+				<value>to obtain outside air temperature less beneficial to icing</value>
+			</item>
+			<item>
+				<name>Cabin Heat</name>
+				<value>FULL ON</value>
+				<value>TO REACH MAXIMUM WINDSHIELD DEFROST</value>
+			</item>
+			<item>
+				<name>Throttle</name>
+				<value>OPEN to increase RPM</value>
+			</item>
+			<item>
+				<name>Carburetor Heat</name>
+				<value>ON if signs of carburetor icing</value>
+				<value>Use LEAN MIXTURE during longer Carburetor Heat actuation</value>
+			</item>
+			<item>
+				<name>Landing</name>
+				<value>NEAREST AIRPORT</value>
+				<value>EXECUTE FORCED LANDING IF NECESSARY DUE TO HIGH RATE OF ICE BUILD-UP</value>
+			</item>
+			<item>
+				<name>If WING LEADING EDGE ICE 0.5cm OR MORE</name>
+				<value>EXPECT SUBSTANTIALLY HIGHER STALL SPEED</value>
+			</item>
+			<item>
+				<name>Flaps</name>
+				<value>UP</value>
+			</item>
+			<item>
+				<name>Left Window</name>
+				<value>OPEN and REMOVE ICE FROM WINDSHIELD if possible</value>
+			</item>
+			<item>
+				<name>Approach</name>
+				<value>FORWARD SLIP for better view</value>
+			</item>
+			<item>
+				<name>Airspeed</name>
+				<value>70-80 MPH, depending on amount of ice</value>
+			</item>
+			<item>
+				<name>Landing</name>
+				<value>LEVEL ATTITUDE</value>
+			</item>
+		</checklist>
+	</group>
+	
+	<startup>
+		<group-index>0</group-index>
+		<index n="0">1</index> <!-- Before starting engines -->
+		<index n="1">2</index> <!-- Start engines -->
+	</startup>
+	<shutdown>
+		<group-index>0</group-index>
+		<index n="0">11</index> <!-- Secure aircraft -->
+	</shutdown>
+</PropertyList>
+

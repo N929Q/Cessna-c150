@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<mass_balance>
+	<ixx unit="SLUG*FT2"> 551 </ixx>
+	<iyy unit="SLUG*FT2"> 759 </iyy>
+	<izz unit="SLUG*FT2"> 1069 </izz>
+	<ixy unit="SLUG*FT2"> 0 </ixy>
+	<ixz unit="SLUG*FT2"> 0 </ixz>
+	<iyz unit="SLUG*FT2"> 0 </iyz>
+	<!--	Empty weight and CG x-coordinate: Owners Manual p.4-6	-->
+	<emptywt unit="LBS"> 1084 </emptywt>
+	<location name="CG" unit="IN">
+		<x> 33.118 </x>
+		<y>  0.000 </y>
+		<z> -15.75 </z>
+	</location>
+	<!--	x-coordinates: Owners Manual p.4-5	-->
+	<pointmass name="Pilot">
+		<weight unit="LBS"> 150 </weight>
+		<location name="POINTMASS" unit="IN">
+			<x> 39.00 </x>
+			<y> -8.66 </y>	<!-- -0.22m	-->
+			<z>  0.00 </z>
+		</location>
+	</pointmass>
+	<pointmass name="Copilot">
+		<weight unit="LBS"> 150 </weight>
+		<location name="POINTMASS" unit="IN">
+			<x> 39.00 </x>
+			<y>  8.66 </y>	<!-- +0.22m	-->
+			<z>  0.00 </z>
+		</location>
+	</pointmass>
+	<pointmass name="Baggage Area 1">
+		<weight unit="LBS"> 0 </weight>
+		<location name="POINTMASS" unit="IN">
+			<x> 64.0 </x>
+			<y>  0.0 </y>
+			<z> -3.9 </z>	<!-- -0.1m	-->
+		</location>
+	</pointmass>
+	<pointmass name="Baggage Area 2">
+		<weight unit="LBS"> 0 </weight>
+		<location name="POINTMASS" unit="IN">
+			<x> 84.0 </x>
+			<y>  0.0 </y>
+			<z> -3.9 </z>	<!-- -0.1m	-->
+		</location>
+	</pointmass>  <!-- Adapted from the c172p: Loss of weight due to lacking oil, pointmass [4]. engine.nas, c150-engine.xml -->
+        <pointmass name="lacking oil weight">
+		<weight unit="LBS"> 0 </weight>
+		<location name="POINTMASS" unit="IN">
+			<x> -9.09 </x>	<!--	Owners Manual p. 4-6: -0.1 lb-ins./1000 at 11 lbs	-->
+			<y>  0.00 </y>
+			<z>  1.18 </z>	<!-- approx. 3cm -->
+		</location>
+        </pointmass>
+</mass_balance>

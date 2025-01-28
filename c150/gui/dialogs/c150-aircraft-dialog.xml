@@ -1,0 +1,365 @@
+<?xml version="1.0"?>
+
+<!-- 
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+-->
+
+<PropertyList>
+	
+	<name>c150-aircraft-dialog</name>
+	<layout>vbox</layout>
+	<resizable>false</resizable>
+	<modal>false</modal>
+	<draggable>true</draggable>
+	
+	<color>
+		<red type="float">0.6</red>
+		<green type="float">0.65</green>
+		<blue type="float">0.55</blue>
+		<alpha type="float">0.85</alpha>
+	</color>
+	
+	<group>
+		<layout>hbox</layout>
+		
+		<empty><stretch>true</stretch></empty>
+		<text>
+			<label>C150 Aircraft Options</label>
+		</text>
+		<empty><stretch>true</stretch></empty>
+		
+		<button>
+			<legend/>
+			<key>Esc</key>
+			<pref-width>16</pref-width>
+			<pref-height>16</pref-height>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+	</group>
+	
+	<hrule />
+	
+	<group>
+		<layout>vbox</layout>
+		<text>
+			<label>Instrumentation</label>
+		</text>
+		<checkbox>
+			<halign>left</halign>
+			<label>Enable second VHF Radio</label>
+			<property>/sim/model/c150/options/second-vhf</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		<checkbox>
+			<halign>left</halign>
+			<label>Enable ADF Radio</label>
+			<property>/sim/model/c150/options/adf</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+	</group>
+	
+	<hrule/>
+	
+	<group>
+		
+		<layout>vbox</layout>
+		<padding>6</padding>
+		
+		<group>
+			<layout>vbox</layout>
+			
+			<button>
+				<halign>center</halign>
+				<legend>Autostart</legend>
+				<binding>
+					<command>nasal</command>
+					<script>autochecklist.complete_checklists("startup");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<halign>center</halign>
+				<legend>Cold and Dark</legend>
+				<binding>
+					<command>nasal</command>
+					<script>autochecklist.complete_checklists("shutdown");</script>
+				</binding>
+			</button>
+			
+		</group>
+		
+		<button>
+			<halign>center</halign>
+			<legend>Open Engine Oil Dialog</legend>
+			<binding>
+				<command>dialog-show</command>
+				<dialog-name>c150-oil</dialog-name>
+			</binding>
+		</button>
+		
+		<hrule/>
+		
+		<checkbox>
+			<halign>left</halign>
+			<label>Complex engine and fuel procedures and failures</label>
+			<property>/engines/engine[0]/complex-engine-procedures</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		
+		<checkbox>
+			<halign>left</halign>
+			<label>Realistic flap operation</label>
+			<property>/sim/model/c150/options/flap-mode</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		
+		<hrule/>
+		
+		<group>
+			<layout>vbox</layout>
+			
+			<button>
+				<halign>center</halign>
+				<legend>Recharge battery</legend>
+				<binding>
+					<command>nasal</command>
+					<script>c150.dialog_battery_reload();</script>
+				</binding>
+			</button>
+			
+			<text>
+				<label>Current charge is xxxx %%</label>
+				<format>Current charge is %3.1f %%</format>
+				<live>true</live>
+				<property>/systems/electrical/battery-charge-percent</property>
+			</text>
+			
+		</group>
+		
+		<hrule/>
+		
+		<group>
+			<layout>vbox</layout>
+			
+			<text>
+				<label>Doors and Windows</label>
+			</text>
+			
+			<checkbox>
+				<halign>left</halign>
+				<label>Open pilot's door</label>
+				<property>/sim/model/c150/doors/door[0]/position-norm</property>
+				<live>true</live>
+				<binding>
+					<command>property-toggle</command>
+					<property>/sim/model/c150/doors/door[0]/cmd</property>
+				</binding>
+			</checkbox>
+			
+			<checkbox>
+				<halign>left</halign>
+				<label>Open copilot's door</label>
+				<property>/sim/model/c150/doors/door[1]/position-norm</property>
+				<live>true</live>
+				<binding>
+					<command>property-toggle</command>
+					<property>/sim/model/c150/doors/door[1]/cmd</property>
+				</binding>
+			</checkbox>
+			
+			<checkbox>
+				<halign>left</halign>
+				<label>Open pilot's window</label>
+				<property>/sim/model/c150/doors/window[0]/lock-pos-norm</property>
+				<live>true</live>
+				<binding>
+					<command>property-assign</command>
+					<property>/sim/model/c150/doors/window[0]/cmd-norm</property>
+					<value>0.0</value>
+				</binding>
+				<binding>
+					<command>property-toggle</command>
+					<property>/sim/model/c150/doors/window[0]/lock-cmd</property>
+				</binding>
+			</checkbox>
+			
+			<checkbox>
+				<halign>left</halign>
+				<label>Open copilot's window</label>
+				<property>/sim/model/c150/doors/window[1]/lock-pos-norm</property>
+				<live>true</live>
+				<binding>
+					<command>property-assign</command>
+					<property>/sim/model/c150/doors/window[1]/cmd-norm</property>
+					<value>0.0</value>
+				</binding>
+				<binding>
+					<command>property-toggle</command>
+					<property>/sim/model/c150/doors/window[1]/lock-cmd</property>
+				</binding>
+			</checkbox>
+			
+			<hrule/>
+			<text>
+				<label>Switches</label>
+			</text>
+			
+			<checkbox>
+				<halign>left</halign>
+				<label>Master Battery</label>
+				<property>/controls/engines/engine[0]/master-bat</property>
+				<live>true</live>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+			</checkbox>
+			<checkbox>
+				<halign>left</halign>
+				<label>Master Alternator</label>
+				<property>/controls/engines/engine[0]/master-alt</property>
+				<live>true</live>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+			</checkbox>
+			
+			<checkbox>
+				<halign>left</halign>
+				<label>Pitot Heat</label>
+				<property>/controls/anti-ice/engine[0]/pitot-heat</property>
+				<live>true</live>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+			</checkbox>
+			
+			<checkbox>
+				<halign>left</halign>
+				<label>Navigation Lights</label>
+				<property>/controls/lighting/nav-lights</property>
+				<live>true</live>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+			</checkbox>
+			
+			<checkbox>
+				<halign>left</halign>
+				<label>Strobe Lights</label>
+				<property>/controls/lighting/strobe</property>
+				<live>true</live>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+			</checkbox>
+			
+			<checkbox>
+				<halign>left</halign>
+				<label>Beacon Light</label>
+				<property>/controls/lighting/beacon</property>
+				<live>true</live>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+			</checkbox>
+			
+			<checkbox>
+				<halign>left</halign>
+				<label>Landing Light</label>
+				<property>/controls/lighting/landing-light</property>
+				<live>true</live>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+			</checkbox>
+			
+		</group>        
+		
+		<hrule/>
+		
+		<button>
+			<halign>center</halign>
+			<legend>Toggle ALS flashlight</legend>
+			<binding>
+				<command>nasal</command>
+				<script>c150.toggle_flashlight()</script>
+			</binding>
+		</button>            
+		
+		<hrule/>     
+		
+		<checkbox>
+			<halign>left</halign>
+			<label>Show yokes</label>
+			<property>/sim/model/c150/options/show-yoke</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		
+	</group>
+	
+	<hrule/>      
+	
+	<group>
+		<layout>hbox</layout>
+		
+		<button>
+			<halign>left</halign>
+			<legend>?</legend>
+			<binding>
+				<command>nasal</command>
+				<script>fgcommand("open-browser", props.Node.new({"url":"http://wiki.flightgear.org/Cessna_150"}));</script>
+			</binding>
+		</button>
+		
+		<hrule/>
+		<checkbox>
+			<halign>left</halign>
+			<label>Enable Debug Log Messages</label>
+			<property>/c150/debug-mode</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		
+		<button>
+			<halign>right</halign>
+			<legend>Close</legend>
+			<equal>true</equal>
+			<key>Esc</key>
+			<default>true</default>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+		
+	</group>
+	
+	
+	
+</PropertyList>

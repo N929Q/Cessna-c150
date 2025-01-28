@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	
+	<path>clock.ac</path>
+
+	<effect>
+		<inherits-from>../../../Effects/interior/instrument-glass</inherits-from>
+		<object-name>clock.glass</object-name>
+	</effect>
+	
+	<effect>
+		<inherits-from>Aircraft/c150/Models/Effects/interior/flashlight</inherits-from>
+		<object-name>clock</object-name>
+		<object-name>clock.second</object-name>
+		<object-name>clock.minute</object-name>
+		<object-name>clock.hour</object-name>
+	</effect>
+	
+	<animation>
+		<type>material</type>
+		<object-name>clock</object-name>
+		<object-name>clock.second</object-name>
+		<object-name>clock.minute</object-name>
+		<object-name>clock.hour</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>0.2</green>
+			<blue>0.0</blue>
+			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>clock.second</object-name>
+		<property>sim/time/utc/day-seconds</property>
+		<factor>6</factor>
+		<axis>
+			<x>-1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>clock.second</object-name>
+		<property>sim/time/local-offset</property>
+		<factor>6</factor>
+		<axis>
+			<x>-1</x>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>clock.minute</object-name>
+		<property>sim/time/utc/day-seconds</property>
+		<factor>0.1</factor>
+		<axis>
+			<x>-1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>clock.minute</object-name>
+		<property>sim/time/local-offset</property>
+		<factor>0.1</factor>
+		<axis>
+			<x>-1</x>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>clock.hour</object-name>
+		<property>sim/time/utc/day-seconds</property>
+		<factor>0.008333</factor>
+		<axis>
+			<x>-1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>clock.hour</object-name>
+		<property>sim/time/local-offset</property>
+		<factor>0.008333</factor>
+		<axis>
+			<x>-1</x>
+		</axis>
+	</animation>
+	
+</PropertyList>

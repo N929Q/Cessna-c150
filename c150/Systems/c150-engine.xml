@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<system name="c150-engine">
+	
+	<channel name="Mixture Control">
+		<!--	Mixture Control - Adapted from the Cessna 172p	-->
+		
+		<!--	Ref. https://www.airtreknorth.com/uploads/4/7/2/4/4724302/cessna_150_systems_and_summary_sheet.pdf:
+				Cold engine needs about 3 primer pumps and one throttle pump
+				< 40 °F needs about 5 primer pumps and one to two throttle pumps
+		-->
+		
+		<!-- If the engine was primed enough times and throttle is in starter position, then mixture is 1.	-->
+		<fcs_function name="fcs/mixture-primer-cmd">
+			<function>
+				<table>
+					<independentVar lookup="row">/controls/engines/engine/primer</independentVar>
+					<independentVar lookup="column">fcs/throttle-cmd-norm</independentVar>
+					<independentVar lookup="table">/engines/engine[0]/oil-temperature-degf</independentVar>
+					<tableData breakPoint="40">
+							0.09    0.1    0.5    0.51
+						4	0	0	0	0
+						5	0	1	1	0
+						6	0	1	1	0
+						7	0	0	0	0
+					</tableData>
+					<tableData breakPoint="50">
+							0.09    0.1    0.5    0.51
+						2	0	0	0	0
+						3	0	1	1	0
+						6	0	1	1	0
+						7	0	0	0	0
+					</tableData>
+					<tableData breakPoint="60">
+							0.09    0.1    0.5    0.51
+						0	0	1	1	0
+						6	0	1	1	0
+						7	0	0	0	0
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<pure_gain name="fcs/mixture-primer[0]">
+			<input>/controls/engines/engine[0]/mixture</input>
+			<gain>fcs/mixture-primer-cmd</gain>
+		</pure_gain>
+		
+		<!-- Primer logic for engine -->
+		<switch name="Mixture Position">
+			<default value="/controls/engines/engine[0]/mixture"/>
+			<!-- Use primer if used and engine is cold. If engine
+			is warm, then the mixture lever is used.
+			-->
+			<test logic="AND" value="fcs/mixture-primer[0]">
+				/controls/engines/engine/use-primer eq 1
+			</test>
+			<output>fcs/mixture-pos-norm[0]</output>
+		</switch>
+		
+		<pure_gain>
+			<input>/controls/engines/engine[0]/c150-magnetos</input>
+			<gain>1.0</gain>
+			<clamp>
+				<min>0</min>
+				<max>3</max>
+			</clamp>
+			<output>/controls/engines/engine[0]/magnetos</output>
+		</pure_gain>
+	</channel>
+	<channel name="Starter">
+		<!--	Starter	-->
+		<switch>
+			<default value="0"/>
+			<test value="1" logic="OR">
+				/controls/engines/engine/c150-magnetos gt 3
+				/controls/engines/engine/starter-key eq 1
+			</test>
+			<output>/controls/engines/engine[0]/starter-cmd</output>
+		</switch>
+		<switch>
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/outputs/starter ge 9
+			</test>
+			<output>/controls/engines/engine[0]/starter</output>
+			<output>propulsion/starter_cmd</output>
+		</switch>
+	</channel>
+	
+	<channel name="Carburetor Heat">
+		<!--	RPM drop due to Carburetor heat, adapted from c172p	-->
+		<fcs_function name="Carb heat on causes RPM drop">
+			<function>
+				<ifthen>
+					<property>/controls/anti-ice/engine[0]/carb-heat</property>
+					<value>0.475</value>
+					<value>0.15185</value>
+				</ifthen>
+			</function>
+			<output>/fdm/jsbsim/propulsion/engine[0]/air-intake-impedance-factor</output>
+		</fcs_function>
+	</channel>
+	
+	<channel name="Oil">
+		<fcs_function name="consumed-oil-weight">
+			<function>
+				<product>
+					<property>/engines/engine[0]/oil-lacking</property>
+					<value>1.7686</value>
+					<value>-1</value>
+				</product>
+			</function>
+			<output>/fdm/jsbsim/inertia/pointmass-weight-lbs[4]</output>
+		</fcs_function>
+	</channel>
+	
+</system>

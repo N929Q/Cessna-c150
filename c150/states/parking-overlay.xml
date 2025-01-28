@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<PropertyList>
+	
+	<name type="string">parking</name>
+	
+	<description>
+		Parked, cold and dark.
+	</description>
+	
+	<overlay>
+		<controls>
+			<anti-ice>
+				<pitot-heat>false</pitot-heat>
+			</anti-ice>
+			<engines>
+				<engine n="0">
+					<c150-magnetos>0</c150-magnetos>
+					<master-bat>false</master-bat>
+					<master-alt>false</master-alt>
+					<mixture>0.0</mixture>
+					<throttle>0.0</throttle>
+				</engine>
+			</engines>
+			<lighting>
+				<nav-lights>false</nav-lights>
+				<dome-light>false</dome-light>
+				<beacon>false</beacon>
+				<strobe>false</strobe>
+				<landing-lights>false</landing-lights>
+				<instruments-norm>0.0</instruments-norm>
+			</lighting>
+			<sun-visor>
+				<position-norm>1.0</position-norm>
+			</sun-visor>
+		</controls>
+		<engines>
+			<engine n="0">
+				<running>false</running>
+				<rpm>0.0</rpm>
+			</engine>
+		</engines>
+	</overlay>
+</PropertyList>

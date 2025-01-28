@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<PropertyList>
+	
+	<name type="string">take-off</name>
+	
+	<description>
+		Ready for Takeoff!
+	</description>
+	
+	<overlay>
+		<controls>
+			<anti-ice>
+				<pitot-heat>false</pitot-heat>
+			</anti-ice>
+			<engines>
+				<engine n="0">
+					<c150-magnetos>3</c150-magnetos>
+					<master-bat>true</master-bat>
+					<master-alt>true</master-alt>
+					<mixture>1.0</mixture>
+					<throttle>0.1</throttle>
+				</engine>
+			</engines>
+			<lighting>
+				<nav-lights>false</nav-lights>
+				<dome-light>false</dome-light>
+				<beacon>true</beacon>
+				<strobe>true</strobe>
+				<landing-lights>false</landing-lights>
+				<instruments-norm>0.0</instruments-norm>
+			</lighting>
+			<sun-visor>
+				<position-norm>1.0</position-norm>
+			</sun-visor>
+		</controls>
+		<engines>
+			<engine n="0">
+				<running>true</running>
+				<rpm>1000.0</rpm>
+			</engine>
+		</engines>
+		<sim>
+			<presets>
+				<running>true</running>
+			</presets>
+		</sim>
+	</overlay>
+</PropertyList>

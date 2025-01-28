@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PropertyList>
+	<name>Aircraft/c150/Models/Effects/exterior/fuselage</name>
+	<inherits-from>Effects/model-combined</inherits-from>
+	<parameters>
+		
+		<rain-enabled type="int">1</rain-enabled>
+		
+		<normalmap-enabled type="int"> 0 </normalmap-enabled>
+		
+		<lightmap-enabled type="int"> 0 </lightmap-enabled>
+		
+		<reflection-enabled type="int">1</reflection-enabled>
+		<reflection-correction type="float">-0.2</reflection-correction>
+		<reflect-map-enabled type="int">0</reflect-map-enabled>
+		<reflection-fresnel type="float">0.5</reflection-fresnel>
+		<reflection-rainbow type="float">0.05</reflection-rainbow>
+		<reflection-noise type="float">0.05></reflection-noise>
+		<reflection-dynamic type="int">1</reflection-dynamic>
+		<ambient-correction type="float">0.1</ambient-correction>
+		
+	</parameters>
+</PropertyList>

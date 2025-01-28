@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+	Outside Air Temperature Indicator, models a C688507-0101 (ref. Parts Manual, 225)
+	
+	References
+		https://www.ebay.com/itm/275595734934
+		https://baspartsales.com/c668507-0101-cessna-a185f-outside-air-temperature-indicator/
+		https://aircraftpartsandsalvage.com/aircraft-parts/avionics/instruments/cessna-outside-air-temp-oat-gauge-34/
+-->
+
+<PropertyList>
+
+	<path>oat.ac</path>
+
+	<!--	Illumination	-->
+	<animation>
+		<type>material</type>
+		<object-name>oat</object-name>
+		<object-name>oat.needle</object-name>
+		<emission>
+			<red>   1.0 </red>
+			<green> 0.2 </green>
+			<blue>  0.0 </blue>
+			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
+		</emission>
+	</animation>
+
+	<!--	Glass	-->
+	<effect>
+		<inherits-from>../../../Effects/interior/instrument-glass</inherits-from>
+		<object-name>oat.glass</object-name>
+	</effect>
+
+	<!--	Needle -->
+	<animation>
+		<type>rotate</type>
+		<object-name>oat.needle</object-name>
+		<property>environment/temperature-degf</property>
+		<interpolation>
+			<entry><ind>-70</ind><dep>-170</dep></entry>
+			<entry><ind>150</ind><dep> 170</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+		</axis>
+	</animation>
+
+</PropertyList>

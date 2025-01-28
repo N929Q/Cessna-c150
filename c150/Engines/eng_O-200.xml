@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+	File:     eng_O-200.xml
+	Author:   Ron Jensen; modified by Bea Wolf (01/2021)
+
+	References:
+		[E1]	Type Certificate Data Sheet 	FAA TCDS E-252 / EASA TCDS No IM.E.101	https://www.easa.europa.eu/sites/default/files/dfu/IM.E.101%20TCDS%20C90%26O-200%20series%20issue%2003.pdf
+		[E2]	Overhaul Manual								http://veteranflyg.se/wordpress/wp-content/uploads/2017/03/Continental-C75-C85-C90-O-200-Overhaul-Manual-Aug-2011.pdf	
+-->
+
+<piston_engine name="o-200">
+	<minmp unit="INHG">         11.4 </minmp>	<!--	ref.E2 p.109: 17.0 - 18.5 inHg below ambient pressure	-->
+	<maxmp unit="INHG">         28.7 </maxmp>	<!--	ref.E2 p.109: 0.5 - 2 inHg below ambient pressure	-->
+	<displacement unit="IN3"> 201.00 </displacement>	<!--	ref.E1 p.6	-->
+	<maxhp>        100.00 </maxhp>		<!--	ref.E1 p.7	-->
+	<cycles>         4.0 </cycles>		<!--	ref.E1 p.6	-->
+	<idlerpm>      500.0 </idlerpm>		<!--	ref.E2 p.52 10-5. b.	-->
+	<starter-rpm> 1100.0 </starter-rpm>	<!--	reference needed	-->
+	<maxrpm>      2750.0 </maxrpm>		<!--	ref.E1 p.7	-->
+	<bore unit="IN"> 4.0625 </bore>		<!--	ref.E1 p.6	-->
+	<stroke unit="IN">3.875 </stroke>	<!--	ref.E1 p.6	-->
+	<compression-ratio> 7.0 </compression-ratio>	<!--	ref.E1 p.6	-->
+	<cylinders> 4 </cylinders>		<!--	ref.E1 p.6	-->
+	<sparkfaildrop> 0.035 </sparkfaildrop>	<!--	ref.E2 p.109: *max.* 100RPM at full throttle (=2750RPM) -> 100/2750 = 0.036	-->
+	<!--<bsfc unit="LBS/HP*HR"> 0.5155 </bsfc>-->	<!--	ref.E2 p.109: 51.55 lbs/hr at full throttle (=100hp) -> 51.55/100 = 0.5155	-->
+</piston_engine>

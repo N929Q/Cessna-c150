@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+	
+	<name>co-poisoning</name>
+	<layout>vbox</layout>
+	<modal>false</modal>
+	<draggable>true</draggable>
+	
+	<color>
+		<red type="float">0.6</red>
+		<green type="float">0.65</green>
+		<blue type="float">0.55</blue>
+		<alpha type="float">0.85</alpha>
+	</color>
+	
+	
+	<group>
+		<layout>hbox</layout>
+		<default-padding>1</default-padding>
+		
+		<empty>
+			<stretch>true</stretch>
+		</empty>
+		
+		<text>
+			<label>Carbon Monoxide (CO) Poisoning</label>
+		</text>
+		
+		<empty>
+			<stretch>true</stretch>
+		</empty>
+		
+		<button>
+			<legend/>
+			<key>Esc</key>
+			<pref-width>16</pref-width>
+			<pref-height>16</pref-height>
+			<border>2</border>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+	</group>
+	
+	<hrule/>
+	
+	
+	<group>
+		<layout>hbox</layout>
+		
+		<checkbox>
+			<property>/sim/co-poisoning/master</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		<text>
+			<halign>left</halign>
+			<label>Enable CO-Poisoning</label>
+		</text>
+		
+	</group>
+	
+	<hrule/>
+	
+	<group>
+		<layout>hbox</layout>
+		
+		<text>
+			<halign>left</halign>
+			<label>Chance of CO-Poisoning:</label>
+		</text>
+		<input>
+			<pref-width>10</pref-width>
+			<halign>fill</halign>
+			<stretch>true</stretch>
+			<property>/sim/co-poisoning/chance</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</input>
+	</group>
+	
+	<hrule/>
+	
+	<button>
+		<legend>Reset CO leakage</legend>
+		<binding>
+			<command>nasal</command>
+			<script>c150.reset_co_leak();</script>
+		</binding>
+	</button>
+	
+	<hrule/>
+	
+</PropertyList>
+

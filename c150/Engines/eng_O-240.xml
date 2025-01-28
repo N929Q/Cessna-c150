@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!--	Reference: https://cdn.shopify.com/s/files/1/0826/7347/files/O240A_Overhaul_Manual.pdf?4957166058642403659	-->
+
+<piston_engine name="o240">
+	<minmp unit="INHG">         11.2 </minmp>	<!-- p.F3: between 16.5 and 18.0 below ambient -->
+	<maxmp unit="INHG">         28.2 </maxmp>	<!-- p.F3: between 1.0 and 2.0 below ambient -->
+	<displacement unit="IN3"> 240 </displacement>
+	<maxhp>        130 </maxhp>
+	<cycles>         4.0 </cycles>
+	<idlerpm>      550.0 </idlerpm> <!-- p.F3: 550 +- 25RPM -->
+	<maxrpm>      2800.0 </maxrpm>
+	<sparkfaildrop>  0.1 </sparkfaildrop>	<!-- p.F3: max. 75RPM drop at 1700RPM -->
+	<volumetric-efficiency> 0.85 </volumetric-efficiency>	<!-- reference needed -->
+	<man-press-lag> 0.1 </man-press-lag>	<!-- reference needed -->
+	<static-friction  unit="HP"> 0.65 </static-friction>	<!-- reference needed -->
+	<starter-torque> 104 </starter-torque>	<!-- reference needed -->
+	<starter-rpm> 1400 </starter-rpm>	<!-- reference needed -->
+	
+	<stroke unit="IN">  3.875 </stroke>
+	<bore unit="IN">    4.437 </bore>
+	<cylinders>         4  </cylinders>
+	<compression-ratio> 8.5 </compression-ratio>
+</piston_engine>

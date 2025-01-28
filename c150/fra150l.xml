@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="http://jsbsim.sourceforge.net/JSBSim.xsl" type="text/xsl"?>
+<fdm_config name="C150L" version="2.0" release="BETA"
+	    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	    xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
+	
+	<!--	This simulates the FRA150
+		with a Continental O-240-A engine, propeller model unknown, for now: Sensenich W69EK7-63 as used on the DA20 when equipped with the same engine			-->
+	<fileheader>
+		<author> hjohnsen, rjensen </author>
+		<filecreationdate> 2005/05/15 </filecreationdate>
+		<version> 01/2021 </version>
+		<description> Models a C150L </description>
+	</fileheader>
+	
+	<metrics file="Systems/c150-metrics.xml"/>
+	
+	<mass_balance file="Systems/c150-mass-balance.xml"/>
+	
+	<ground_reactions file="Systems/c150-ground-reactions.xml"/>
+	
+	<propulsion>
+		<engine file="eng_O-240">
+			<feed>2</feed>
+			<thruster file="prop_sensenich_w69ek7-63">
+				<location unit="IN">
+					<x> -3.3 </x>
+					<y> 0 </y>
+					<z> 0 </z>
+				</location>
+				<orient unit="DEG">
+					<roll> 0.0 </roll>
+					<pitch> 0.0 </pitch>
+					<yaw> 0.0 </yaw>
+				</orient>
+			</thruster>
+		</engine>
+		<!--	POH p. 2-1 and 2-2	-->
+		<!--	standard wing		-->
+		<tank type="FUEL">
+			<location unit="IN">
+				<x>  42.22 </x>	<!-- Owners Manual p.4-6	-->
+				<y> -40 </y>
+				<z>  27.0 </z>
+			</location>
+			<capacity unit="LBS"> 78.26 </capacity>	<!--	13.0 gal at 6.02 lbs/gal	-->
+			<unusable unit="GAL">  1.75 </unusable>
+			<contents unit="LBS"> 15.00 </contents>
+			<density unit="LBS/GAL"> 6.02 </density>            
+		</tank>
+		<tank type="FUEL">
+			<location unit="IN">
+				<x>  42.22 </x>	<!-- Owners Manual p.4-6	-->
+				<y>  40.0 </y>
+				<z>  27.0 </z>
+			</location>
+			<capacity unit="LBS"> 78.26 </capacity>	<!--	13.0 gal at 6.02 lbs/gal	-->
+			<unusable unit="GAL">  1.75 </unusable>
+			<contents unit="LBS"> 15.00 </contents>
+			<density unit="LBS/GAL"> 6.02 </density>            
+		</tank>
+		<!-- Fuel Strainer/Collector -->
+		<tank type="FUEL">
+			<location unit="M">
+				<x>  0.0 </x>
+				<y>  0.0 </y>
+				<z> -0.30 </z>
+			</location>
+			<capacity unit="LBS"> 0.1 </capacity>
+			<contents unit="LBS"> 0 </contents>
+			<density unit="LBS/GAL"> 6.02 </density>            
+		</tank>
+	</propulsion>
+	
+	<flight_control file="Systems/c150-fcs.xml"/>
+	
+	<aerodynamics file="Systems/c150-aerodynamics.xml"/>
+	
+	<system file="c150-fuel"/>
+	<system file="c150-engine"/>
+	
+	<external_reactions file="Systems/c150-external-reactions.xml"/>
+</fdm_config>

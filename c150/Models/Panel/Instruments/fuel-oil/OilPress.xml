@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	
+	<path>OilPress.ac</path>
+
+	<effect>
+		<inherits-from>../../../Effects/interior/instrument-glass</inherits-from>
+		<object-name>oil_press.glass</object-name>
+	</effect>
+	
+	<effect>
+		<inherits-from>Aircraft/c150/Models/Effects/interior/flashlight</inherits-from>
+		<object-name>oil_press</object-name>
+		<object-name>oil_press.needle</object-name>
+	</effect>
+	
+	<animation>
+		<type>material</type>
+		<object-name>oil_press</object-name>
+		<object-name>oil_press.needle</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>0.2</green>
+			<blue>0.0</blue>
+			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>oil_press.needle</object-name>
+		<property>engines/engine[0]/oil-pressure-psi</property>
+		<interpolation>
+			<entry>
+				<ind>0</ind>
+				<dep>-33</dep>
+			</entry>
+			<entry>
+				<ind>100</ind>
+				<dep>33</dep>
+			</entry>
+		</interpolation>
+		<center>
+			<z-m>-0.015</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+		</axis>
+	</animation>
+	
+</PropertyList>
