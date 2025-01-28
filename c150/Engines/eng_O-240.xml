@@ -8,7 +8,7 @@
 	<displacement unit="IN3"> 240 </displacement>
 	<maxhp>        130 </maxhp>
 	<cycles>         4.0 </cycles>
-	<idlerpm>      550.0 </idlerpm> <!-- p.F3: 550 +- 25RPM -->
+	<idlerpm>      400.0 </idlerpm> <!-- p.F3: 550 +- 25RPM -->
 	<maxrpm>      2800.0 </maxrpm>
 	<sparkfaildrop>  0.1 </sparkfaildrop>	<!-- p.F3: max. 75RPM drop at 1700RPM -->
 	<volumetric-efficiency> 0.85 </volumetric-efficiency>	<!-- reference needed -->

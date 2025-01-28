@@ -26,10 +26,15 @@
 		<object-name>AdfFreq100</object-name>
 		<object-name>AdfFreq10</object-name>
 		<object-name>AdfFreq1</object-name>
+		<object-name>AdfVolume</object-name>
+		<object-name>AdfMode</object-name>
+		<object-name>Adf1</object-name>
+		<object-name>Adf10</object-name>
+		<object-name>Adf100</object-name>				
 		<emission>
-			<red>1.000</red>
-			<green>0.20</green>
-			<blue>0.000</blue>
+			<red>0.95</red>
+			<green>1</green>
+			<blue>1</blue>
 			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
 		</emission>
 	</animation>

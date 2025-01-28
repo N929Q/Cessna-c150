@@ -203,6 +203,7 @@ Overhauling 2016 by Harald Johnsen
 			<path>instrumentation/nav[0]/power-btn</path>
 			<path>instrumentation/nav[0]/frequencies/selected-mhz</path>
 			<path>instrumentation/nav[0]/frequencies/standby-mhz</path>
+			<path>instrumentation/nav[0]/radials/selected-deg</path>
 			
 			<path>instrumentation/comm[1]/volume</path>
 			<path>instrumentation/comm[1]/frequencies/selected-mhz</path>
@@ -213,10 +214,24 @@ Overhauling 2016 by Harald Johnsen
 			<path>instrumentation/nav[1]/power-btn</path>
 			<path>instrumentation/nav[1]/frequencies/selected-mhz</path>
 			<path>instrumentation/nav[1]/frequencies/standby-mhz</path>
+			<path>instrumentation/nav[1]/radials/selected-deg</path>
 			
 			<path>instrumentation/adf[0]/frequencies/selected-khz</path>
 			<path>instrumentation/adf[0]/volume</path>
 			<path>instrumentation/adf[0]/mode</path>
+			<path>instrumentation/altimeter/setting-hpa</path>
+			<path>instrumentation/transponder</path>
+			
+			<path>/controls/engines/engine[0]/master-alt</path>
+			<path>/controls/electric/battery-switch</path>
+			<path>/controls/engines/engine[0]/left-magneto</path>
+			<path>/controls/engines/engine[0]/right-magneto</path>			
+			<path>controls/engines/engine[0]/throttle</path>
+			<path>controls/engines/engine[0]/mixture</path>
+			<path>controls/flight/elevator-trim</path>
+			<path>controls/flight/aileron-trim</path>
+			<path>controls/flight/rudder-trim</path>
+			<path>/controls/gear/brake-parking</path>			
 			
 			<path>consumables/fuel/tank[0]/level-gal_us</path>
 			<path>consumables/fuel/tank[1]/level-gal_us</path>
@@ -226,6 +241,20 @@ Overhauling 2016 by Harald Johnsen
 			<path>consumables/fuel/both-tanks-selected</path>
 			
 			<path>controls/lighting/instruments-norm</path>
+			<path>/controls/lighting/panel-norm</path>
+			<path>controls/lighting/dome-light</path>
+			<path>controls/anti-ice/pitot-heat</path>
+			<path>controls/lighting/nav-lights</path>
+			<path>controls/lighting/strobe</path>
+			<path>controls/lighting/beacon</path>
+			<path>controls/lighting/landing-light</path>
+			
+			<path>controls/gear/brake-parking</path>
+			<path>controls/flight/flaps</path>
+			
+			<path>/fdm/jsbsim/inertia/pointmass-weight-lbs[0]</path>
+			<path>/fdm/jsbsim/inertia/pointmass-weight-lbs[1]</path>
+			<path>/fdm/jsbsim/inertia/pointmass-weight-lbs[2]</path>			
 			
 			<path>sim/co-poisoning/master</path>
 			<path>sim/co-poisoning/chance</path>
@@ -247,10 +276,10 @@ Overhauling 2016 by Harald Johnsen
 			<internal archive="y">true</internal>
 			<config>
 				<x-offset-m archive="y">-0.25</x-offset-m>
-				<y-offset-m archive="y">0.39</y-offset-m>
+				<y-offset-m archive="y">0.44</y-offset-m>
 				<z-offset-m archive="y">1.21</z-offset-m>
 				<pitch-offset-deg>-7</pitch-offset-deg>
-				<default-field-of-view-deg type="double">76.5</default-field-of-view-deg>
+				<default-field-of-view-deg type="double">79.0</default-field-of-view-deg>
 			</config>
 		</view>
 		
@@ -263,10 +292,10 @@ Overhauling 2016 by Harald Johnsen
 				<from-model type="bool">true</from-model>
 				<from-model-idx type="int">0</from-model-idx>
 				<x-offset-m type="double">0.25</x-offset-m>
-				<y-offset-m type="double">0.39</y-offset-m>
+				<y-offset-m type="double">0.44</y-offset-m>
 				<z-offset-m type="double">1.21</z-offset-m>
 				<pitch-offset-deg type="double">-7</pitch-offset-deg>
-				<default-field-of-view-deg type="double">76.5</default-field-of-view-deg>
+				<default-field-of-view-deg type="double">79.0</default-field-of-view-deg>
 				<limits>
 					<!-- disabled while working on the cabin -->
 					<enabled type="bool">false</enabled>

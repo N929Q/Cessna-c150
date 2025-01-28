@@ -172,6 +172,17 @@
 		</offsets>
 	</model>
 	
+	<animation>
+	<type>material</type>
+		<object-name>intercom</object-name>
+		<emission>
+			<red>0.65</red>
+			<green>0.70</green>
+			<blue>0.70</blue>
+			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
+		</emission>
+	</animation>	
+	
 	<model>
 		<path>fuel-oil/LeftFuel.xml</path>
 		<offsets>

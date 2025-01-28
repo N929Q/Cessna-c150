@@ -15,10 +15,12 @@
 		<object-name>alt.100</object-name>
 		<object-name>alt.1000</object-name>
 		<object-name>alt.10000</object-name>
+		<object-name>alt.knob</object-name>
+		<object-name>alt.qnh</object-name>
 		<emission>
-			<red>   1.0 </red>
-			<green> 0.2 </green>
-			<blue>  0.0 </blue>
+			<red>   0.95 </red>
+			<green> 1.0 </green>
+			<blue>  1.0 </blue>
 			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
 		</emission>
 	</animation>
@@ -98,10 +100,18 @@
 				<property>instrumentation/altimeter/setting-hpa</property>
 				<min>  950 </min>
 				<max> 1050 </max>
-				<factor> 1 </factor>
+				<factor> 0.333333333333 </factor>
 				<wrap>   0 </wrap>
 			</binding>
 		</action>
+       <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>alt-setting</tooltip-id>
+                <label>Altimeter In Hg: %5.2f</label>
+                <property>instrumentation/altimeter/setting-inhg</property>
+            </binding>
+        </hovered>	
 	</animation>
 
 </PropertyList>

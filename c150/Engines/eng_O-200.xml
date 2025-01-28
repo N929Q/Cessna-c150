@@ -14,7 +14,7 @@
 	<displacement unit="IN3"> 201.00 </displacement>	<!--	ref.E1 p.6	-->
 	<maxhp>        100.00 </maxhp>		<!--	ref.E1 p.7	-->
 	<cycles>         4.0 </cycles>		<!--	ref.E1 p.6	-->
-	<idlerpm>      500.0 </idlerpm>		<!--	ref.E2 p.52 10-5. b.	-->
+	<idlerpm>      300.0 </idlerpm>		<!--	ref.E2 p.52 10-5. b.	-->
 	<starter-rpm> 1100.0 </starter-rpm>	<!--	reference needed	-->
 	<maxrpm>      2750.0 </maxrpm>		<!--	ref.E1 p.7	-->
 	<bore unit="IN"> 4.0625 </bore>		<!--	ref.E1 p.6	-->

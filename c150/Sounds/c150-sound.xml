@@ -128,14 +128,14 @@
 		<rumble>
 			<name>rumble</name>
 			<mode>looped</mode>
-			<path>Sounds/rumble.wav</path>
+			<path>Aircraft/c150/Sounds/rumble.wav</path>
 			<condition>
 				<property>gear/gear[0]/wow</property>
 			</condition>
 			<volume>
 				<property>velocities/groundspeed-kt</property>
 				<type>log</type>
-				<factor>0.5</factor> <!-- 0.25 -->
+				<factor>0.25</factor> <!-- 0.25 -->
 			</volume>
 			<volume>
 				<property>sim/model/c150/sound/doorsk</property>
@@ -148,10 +148,10 @@
 			<reference-dist>5.0</reference-dist>
 			<max-dist>25.0</max-dist>
 		</rumble>
-		<rumble>
-			<name>rumble</name>
+		<rumble1>
+			<name>rumble1</name>
 			<mode>looped</mode>
-			<path>Sounds/rumble.wav</path>
+			<path>Aircraft/c150/Sounds/rumble.wav</path>
 			<condition>
 				<property>gear/gear[1]/wow</property>
 			</condition>
@@ -170,11 +170,11 @@
 			</position>
 			<reference-dist>5.0</reference-dist>
 			<max-dist>25.0</max-dist>
-		</rumble>
-		<rumble>
-			<name>rumble</name>
+		</rumble1>
+		<rumble2>
+			<name>rumble2</name>
 			<mode>looped</mode>
-			<path>Sounds/rumble.wav</path>
+			<path>Aircraft/c150/Sounds/rumble.wav</path>
 			<condition>
 				<property>gear/gear[2]/wow</property>
 			</condition>
@@ -193,7 +193,7 @@
 			</position>
 			<reference-dist>5.0</reference-dist>
 			<max-dist>25.0</max-dist>
-		</rumble>
+		</rumble2>
 		
 		<squeal>
 			<name>squeal</name>
@@ -361,7 +361,7 @@
 		<wind>
 			<name>wind</name>
 			<mode>looped</mode>
-			<path>Sounds/wind.wav</path>
+			<path>Aircraft/c150/Sounds/wind.wav</path>
 			<property>velocities/airspeed-kt</property>
 			<volume>
 				<property>position/altitude-ft</property>

@@ -63,20 +63,35 @@
 		</condition>
 	</animation>
 	
-	<!--animation>
+	<animation>
 	<type>material</type>
-	<object-name>Face</object-name>
-	<object-name>inhg</object-name>
-	<object-name>Needle10000</object-name>
-	<object-name>Needle1000</object-name>
-	<object-name>Needle100</object-name>
+		<object-name>com0</object-name>
+		<object-name>com1</object-name>
+		<object-name>com2</object-name>
+		<object-name>com3</object-name>
+		<object-name>com4</object-name>
 		<emission>
-			<red>   1.0 </red>
-			<green> 0.2 </green>
-			<blue>  0.0 </blue>
+			<red>0.95</red>
+			<green>1</green>
+			<blue>1</blue>
 			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
 		</emission>
-	</animation-->
+	</animation>
+	
+	<animation>
+	<type>material</type>
+		<object-name>nav0</object-name>
+		<object-name>nav1</object-name>
+		<object-name>nav2</object-name>
+		<object-name>nav3</object-name>
+		<object-name>nav4</object-name>
+		<emission>
+			<red>0.95</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
+		</emission>
+	</animation>	
 	
 	<animation>
 		<type>rotate</type>
@@ -470,6 +485,25 @@
 		</action>
 	</animation>
 	
+	<animation>
+	<type>material</type>
+		<object-name>VoxSwitch</object-name>
+		<object-name>VoxSwitch</object-name>
+		<object-name>FiveSwitch</object-name>
+		<object-name>CommSquelch</object-name>
+		<object-name>NavVolume</object-name>
+		<object-name>CommVolume</object-name>
+		<object-name>CommKHz</object-name>
+		<object-name>CommMHz</object-name>
+		<object-name>NavKHz</object-name>
+		<object-name>NavMHz</object-name>
+		<emission>
+			<red>0.95</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
+		</emission>
+	</animation>	
 	
 	
 	<animation>

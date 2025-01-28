@@ -16,7 +16,7 @@
 	</location>
 	<!--	x-coordinates: Owners Manual p.4-5	-->
 	<pointmass name="Pilot">
-		<weight unit="LBS"> 150 </weight>
+		<weight unit="LBS"> 178 </weight>
 		<location name="POINTMASS" unit="IN">
 			<x> 39.00 </x>
 			<y> -8.66 </y>	<!-- -0.22m	-->
@@ -24,7 +24,7 @@
 		</location>
 	</pointmass>
 	<pointmass name="Copilot">
-		<weight unit="LBS"> 150 </weight>
+		<weight unit="LBS"> 000 </weight>
 		<location name="POINTMASS" unit="IN">
 			<x> 39.00 </x>
 			<y>  8.66 </y>	<!-- +0.22m	-->
@@ -32,7 +32,7 @@
 		</location>
 	</pointmass>
 	<pointmass name="Baggage Area 1">
-		<weight unit="LBS"> 0 </weight>
+		<weight unit="LBS"> 23 </weight>
 		<location name="POINTMASS" unit="IN">
 			<x> 64.0 </x>
 			<y>  0.0 </y>

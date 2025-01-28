@@ -31,6 +31,17 @@
 	</animation>
 	
 	<animation>
+	<type>material</type>
+		<object-name>ImatCabin</object-name>
+		<emission>
+			<red>0.35</red>
+			<green>0.40</green>
+			<blue>0.40</blue>
+			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
+		</emission>
+	</animation>	
+	
+	<animation>
 		<type>select</type>
 		<condition>
 			<property>sim/model/c150/show-immat</property>

@@ -160,7 +160,7 @@ ElectricalCircuit.addBreaker( Breaker.new(name:"Alternator breaker", power:15, #
 property:"/controls/circuit-breakers/alternator") );
 
 
-var masterBreaker = Breaker.new(name:"Master breaker", power:60,
+var masterBreaker = Breaker.new(name:"Master breaker", power:70,
 				property:"/controls/circuit-breakers/master");
 
 ElectricalCircuit.addBreaker( masterBreaker );

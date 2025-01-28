@@ -55,9 +55,9 @@
 		<object-name>arc.xpdr.mode_knob</object-name>
 		<object-name>arc.xpdr.dim_knob</object-name>
 		<emission>
-			<red>   1.0 </red>
-			<green> 0.2 </green>
-			<blue>  0.0 </blue>
+			<red>0.45</red>
+			<green>0.50</green>
+			<blue>0.50</blue>
 			<factor-prop alias="../../../params/instrument-light-volts" />
 		</emission>
 	</animation>

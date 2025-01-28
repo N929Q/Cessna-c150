@@ -109,7 +109,7 @@
 	<!--	Lights -->
 	<filter>
 		<type>gain</type>
-		<input>systems/electrical/outputs/navigtion-lights</input>
+		<input>systems/electrical/outputs/navigation-lights</input>
 		<gain>0.0704</gain> <!-- 1 / 14.2 -->
 		<output>systems/electrical/outputs/navigation-lights-norm</output>
 	</filter>
