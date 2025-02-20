@@ -49,7 +49,7 @@
 				<y> -40 </y>
 				<z>  27.0 </z>
 			</location>
-			<capacity unit="LBS"> 78.26 </capacity>	<!--	13.0 gal at 6.02 lbs/gal	-->
+			<capacity unit="LBS"> 105.35 </capacity>	<!--	13.0 gal at 6.02 lbs/gal 78.26	-->
 			<unusable unit="GAL">  1.75 </unusable>
 			<contents unit="LBS"> 15.00 </contents>
 			<density unit="LBS/GAL"> 6.02 </density>            
@@ -60,7 +60,7 @@
 				<y>  40.0 </y>
 				<z>  27.0 </z>
 			</location>
-			<capacity unit="LBS"> 78.26 </capacity>	<!--	13.0 gal at 6.02 lbs/gal	-->
+			<capacity unit="LBS"> 105.35 </capacity>	<!--	13.0 gal at 6.02 lbs/gal 78.26	-->
 			<unusable unit="GAL">  1.75 </unusable>
 			<contents unit="LBS"> 15.00 </contents>
 			<density unit="LBS/GAL"> 6.02 </density>            

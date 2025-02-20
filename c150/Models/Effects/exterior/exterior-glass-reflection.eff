@@ -11,7 +11,7 @@
 		<reflection-noise type="float">0.2</reflection-noise>
 		<reflection-dynamic type="int">1</reflection-dynamic>
 		<ambient-correction type="float">0.5</ambient-correction>
-		<reflection-strength type="float">0.3</reflection-strength>
+		<reflection-strength type="float">0.2</reflection-strength>
 		<texture n= "5" >
 			<type>cubemap</type>
 			<images>

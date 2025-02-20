@@ -19,6 +19,7 @@
 		<type>material</type>
 		<object-name>amps.bezel</object-name>
 		<object-name>amps.glass</object-name>
+		<object-name>amps.needle</object-name>
 		<emission>
 			<red>0.95</red>
 			<green>1</green>
