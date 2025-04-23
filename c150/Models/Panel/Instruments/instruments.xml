@@ -44,6 +44,7 @@
 		</offsets>
 	</model>
 	
+		
 	
 	<model>
 		<condition>
@@ -59,6 +60,16 @@
 			<z-m>0.096</z-m>
 		</offsets>
 	</model>
+	
+	<model>
+		<path>hi/hi.xml</path>
+		<offsets>
+			<x-m> 0.006</x-m>
+			<y-m>0.254</y-m>
+			<z-m>0.214</z-m>
+		</offsets>
+	</model>	
+	<!--
 	<model>
 		<condition>
 			<property>sim/model/c150/options/adf</property>
@@ -71,7 +82,7 @@
 			<z-m>0.214</z-m>
 		</offsets>
 	</model>
-	
+	-->
 	<model>
 		<path>alt/alt.xml</path>
 		<offsets>

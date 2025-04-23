@@ -11,7 +11,7 @@
 		<!--	Light color, pointing_x and pointing_y set by calling .xml file	-->
 		<intensity_scale><use>systems/electrical/outputs/navigation-lights-norm</use></intensity_scale>
 		<pointing_z type="float">0.0</pointing_z>
-		<is_directional type="bool">false</is_directional>
+		<is_directional type="bool">true</is_directional>
 		<is_strobe type="bool">false</is_strobe>
 		<inner_angle type="float">0.707106781187</inner_angle>
 		<outer_angle type="float">0.939692620786</outer_angle>

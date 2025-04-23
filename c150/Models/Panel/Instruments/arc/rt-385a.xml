@@ -281,7 +281,7 @@
 				<condition>
 					<greater-than>
 						<property alias="/params/comm-volume"/>
-						<value>0.05</value>
+						<value>0.0</value>
 					</greater-than>
 				</condition>
 			</binding>
@@ -292,7 +292,7 @@
 				<condition>
 					<less-than>
 						<property alias="/params/comm-volume"/>
-						<value>0.05</value>
+						<value>0.0</value>
 					</less-than>
 				</condition>
 			</binding>
