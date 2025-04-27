@@ -1,5 +1,3 @@
-ATTENTION!
-This model is for Flightgear 2020.4, 2024.1
 
 This model was adopted from the flightgear.fgaddon.stable_2024\Aircraft hanger.
 
