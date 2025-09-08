@@ -29,9 +29,9 @@
 		<object-name>vorloc.bc_light</object-name>
 		<object-name>vorloc.heading_card</object-name>
 		<emission>
-			<red>0.95</red>
-			<green>1</green>
-			<blue>1</blue>
+			<red>1.0</red>
+			<green>0.8</green>
+			<blue>0.4</blue>
 			<factor-prop alias="../../../params/instrument-light-volts" />
 		</emission>
 	</animation>

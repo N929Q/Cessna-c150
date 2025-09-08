@@ -48,16 +48,16 @@
 		<object-name>arc.xpdr.knob.2</object-name>
 		<object-name>arc.xpdr.knob.3</object-name>
 		<object-name>arc.xpdr.knob.4</object-name>
-		<object-name>arc.xpdr</object-name>
+		<!--object-name>arc.xpdr</object-name-->
 		<object-name>arc.xpdr.id_light</object-name>
 		<object-name>arc.xpdr.test_light</object-name>
 		<object-name>arc.xpdr.reply_light</object-name>
 		<object-name>arc.xpdr.mode_knob</object-name>
 		<object-name>arc.xpdr.dim_knob</object-name>
 		<emission>
-			<red>0.45</red>
-			<green>0.50</green>
-			<blue>0.50</blue>
+			<red>1.0</red>
+			<green>0.8</green>
+			<blue>0.4</blue>
 			<factor-prop alias="../../../params/instrument-light-volts" />
 		</emission>
 	</animation>

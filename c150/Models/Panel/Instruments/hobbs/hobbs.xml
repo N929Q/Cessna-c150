@@ -25,10 +25,10 @@
 		<object-name>hours.100</object-name>
 		<object-name>hours.1000</object-name>
 		<emission>
-			<red>0.95</red>
-			<green>1</green>
-			<blue>1</blue>
-			<factor-prop>systems/electrical/outputs/panel-light[2]</factor-prop>
+			<red>1.0</red>
+			<green>0.8</green>
+			<blue>0.4</blue>
+			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
 		</emission>
 	</animation>
 

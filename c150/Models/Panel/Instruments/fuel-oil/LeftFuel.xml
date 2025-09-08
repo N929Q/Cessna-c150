@@ -20,9 +20,9 @@
 		<object-name>l_fuel</object-name>
 		<object-name>l_fuel.needle</object-name>
 		<emission>
-			<red>0.95</red>
-			<green>1</green>
-			<blue>1</blue>
+			<red>1.0</red>
+			<green>0.8</green>
+			<blue>0.4</blue>
 			<factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
 		</emission>
 	</animation>
