@@ -8,7 +8,7 @@ Fixed nav lights thanks to some help from N512CO. Also fixed lights so the wingt
 
 Fixed main breaker issue with breaker always blowing.
 
-Re-worked instruments lights so radio light brightness is adjusted when adjusting instrument lights, and disabled the bright red light that was adjusted with instrument lights that was being used to illuminate radio lights, also changed instrument lighting to LED. 
+Re-worked instruments lights so radio light brightness is adjusted when adjusting instrument lights, and disabled the bright red light that was adjusted with instrument lights that was being used to illuminate radio lights, also changed instrument lighting to as close to original looking. 
 
 Changed visors to different glass.eff to stop rain from animating on them. 
 
